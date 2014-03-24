@@ -1,15 +1,21 @@
+# -*- coding: utf-8 -*-
 import sparql
 endpoint='http://130.235.17.116:8000/openrdf-workbench/repositories/AAOT/query'
 statement=("""PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
 	select * WHERE {
-	 ?id aaot:age ?age . 
-	 ?id aaot:age_donor ?age_donor . 
-	 ?id aaot:gender ?gen . }"""
+         ?name aaot:transplant_id ?transplant_id .
+	 ?name aaot:age ?age . 
+	 ?name aaot:age_donor ?age_donor . 
+	 ?name aaot:gender ?gen . 
+         ?name aaot:survival_time ?survival_time .
+         }"""
 	 )
 result = sparql.query(endpoint,statement)
-print result.variables
+variables = result.variables
 for row in result.fetchall():
-   #print 'row:',row
    values=sparql.unpack_row(row)
-   ID=values[0].split('#')[1]
-   print ID, 'age:',values[1], 'age_donor:',values[2], 'gen:',values[3]
+   i=1
+   while i<len(values):
+      print variables[i],values[i],'\t',
+      i+=1
+   print 
