@@ -1,5 +1,5 @@
 import sparql
-endpoint='http://localhost:8080/openrdf-workbench/repositories/AAOT/query'
+endpoint='http://130.235.17.116:8000/openrdf-workbench/repositories/AAOT/query'
 statement=("""PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
 	select * WHERE {
 	 ?id aaot:age ?age . 
