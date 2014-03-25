@@ -4,29 +4,19 @@ import os.path
 import matplotlib.pyplot as plt
 #from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
-'''
-def print_regression_line_one_variable(var_x,var_y,title):
-   x = np.array(var_x)
-   y = np.array(var_y)
-   n = np.max(x.shape)
-   X = np.vstack([np.ones(n),x]).T
-   w = np.linalg.lstsq(X,y)[0]
-    #Plotting the line
-   line = []
-   for i in x: 
-      line.append(w[1]*int(i) + int(w[0])) #Regression line
-   plt.plot(x,line,'r-',x,y,'o')
-   plt.title(title)
-   plt.show()
-   print title +": " " w[1]: " + str(w[1]) + " w[0]: " + str(w[0])
-'''
+
 def print_regression_line(var_x,var_y):
    x = np.array(var_x)
    y = np.array(var_y)
    n = np.max(x.shape)
    X = np.vstack([np.ones(n),x]).T
    w = np.linalg.lstsq(X,y)[0]
-   print w
+   count = 0
+   for i in w:
+      print "w["+str(count)+"]:" + str(i),
+      count += 1
+      if count == len(w):
+         print
 
 def print_result(offset,f):
    endpoint='http://130.235.17.116:8000/openrdf-sesame/repositories/AAOT'
@@ -72,8 +62,8 @@ if __name__=='__main__':
          ages.append(line[0])
          ages_donor.append(line[1])
          survival_days.append(line[3])
-
+      # One feature
       print_regression_line(ages, survival_days)
       print_regression_line(ages_donor, survival_days)
-     
+      # Multiple features
       print_regression_line([ages,ages_donor],survival_days)
