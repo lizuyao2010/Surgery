@@ -6,7 +6,6 @@ def print_result(offset,f):
    endpoint='http://130.235.17.116:8000/openrdf-sesame/repositories/AAOT'
    statement=("""PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
    	select * WHERE {
-            ?name aaot:transplant_id ?transplant_id .
    	 ?name aaot:age ?age . 
    	 ?name aaot:age_donor ?age_donor . 
    	 ?name aaot:gender ?gen . 
@@ -21,7 +20,12 @@ def print_result(offset,f):
       values=sparql.unpack_row(row)
       i=1
       while i<len(values):
-         print >> f,variables[i],values[i],'\t',
+         if variables[i]=='gen':
+            if values[i]=='F':
+               values[i]=1
+            else:
+               values[i]=0
+         print >> f,values[i],'\t',
          i+=1
       print >> f
 if __name__=='__main__':
