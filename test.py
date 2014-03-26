@@ -4,7 +4,7 @@ import os.path
 import matplotlib.pyplot as plt
 #from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
-
+'''
 def print_regression_line(var_x,var_y):
    x = np.array(var_x)
    y = np.array(var_y)
@@ -17,7 +17,7 @@ def print_regression_line(var_x,var_y):
       count += 1
       if count == len(w):
          print
-
+'''
 def print_result(offset,f):
    endpoint='http://130.235.17.116:8000/openrdf-sesame/repositories/AAOT'
    statement=("""PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
@@ -63,7 +63,9 @@ if __name__=='__main__':
          ages_donor.append(line[1])
          survival_days.append(line[3])
       # One feature
+      '''
       print_regression_line(ages, survival_days)
       print_regression_line(ages_donor, survival_days)
       # Multiple features
       print_regression_line([ages,ages_donor],survival_days)
+'''
