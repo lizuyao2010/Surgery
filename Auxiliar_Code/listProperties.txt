@@ -1,4 +1,5 @@
-id
+transplant_id
+patient_id
 diagnosis
 age
 gender

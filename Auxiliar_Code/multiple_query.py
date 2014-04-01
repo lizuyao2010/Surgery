@@ -1,28 +1,51 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-f_properties = open('listProperties.txt','r')
-f_test_query = open('testQuery.txt','w')
+import sparql
 
-statement_beginning = """PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
+def multiple_query():
+
+    endpoint = 'http://130.235.17.116:8000/openrdf-sesame/repositories/AAOT'
+    
+    f_properties = open('listProperties.txt','r')
+    
+    statement_beginning = """PREFIX aaot:<http://cs.lth.se/ontologies/aaot.owl#>
    	select (count(*) as ?count) WHERE { \n"""
+    
+    statement_end = """ ?name aaot:survival_time ?survival_time .
+            }"""
 
-statement_end = """ ?name aaot:survival_time ?survival_time .
-            } limit 1000
-            offset """
+    offset = 0;
+    max_list_attributes = []
+    treshold = 10000
+    line=f_properties.readlines()
+    for i in range(0, len(line)):
+        list_attributes = []
+        list_attributes.append(line[i].strip())
+        statement_query = ""
+        statement_query = statement_query + "?name aaot:"+line[i].strip()+" ?"+line[i].strip()+" ."
+        statement = statement_beginning + statement_query + statement_end +"\n"
+        result = sparql.query(endpoint,statement)
+        for row in result.fetchall():
+            values = sparql.unpack_row(row)
+            if (values[0] > treshold) and (len(list_attributes) > len(max_list_attributes)):
+                max_list_attributes = list_attributes
+        for j in range(i+1, len(line)):
+            list_attributes.append(line[j].strip())
+            statement_query = statement_query + "?name aaot:"+line[j].strip()+" ?"+line[j].strip()+" ."
+            statement = statement_beginning + statement_query + statement_end+ "\n"
+            result = sparql.query(endpoint,statement)
+            for row in result.fetchall():
+                values = sparql.unpack_row(row)
+                if (values[0] > treshold) and (len(list_attributes) > len(max_list_attributes)):
+                    max_list_attributes = list_attributes
 
-offset = 1000;
+    print max_list_attributes
+    print len(max_list_attributes)
+    return max_list_attributes
 
-line=f_properties.readlines()
-for i in range(0, len(line)):
-    statement_query = ""
-    statement_query = statement_query + "?name aaot:"+line[i]+" ?"+line[i]+" .\n"
-    statement = statement_beginning + statement_query + statement_end + str(offset) + "\n"
-    f_test_query.write(statement)
-    for j in range(i+1, len(line)):
-        statement_query = statement_query + "?name aaot:"+line[j]+" ?"+line[j]+" ."
-        statement = statement_beginning + statement_query + statement_end + str(offset) + "\n"
-        f_test_query.write(statement)
+if __name__ == "__main__":
+    multiple_query()
 
 '''
 Show: 
@@ -40,7 +63,5 @@ where {
 ?name aaot:transplant_id ?id .
 ?name aaot:survival_time ?survival_time .
 }
-'''
-        
-                     
 
+'''
