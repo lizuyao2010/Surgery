@@ -19,8 +19,8 @@ def multiple_query():
     max_list_attributes = []
     treshold = 10000
     line=f_properties.readlines()
-    list_attributes = []
-    for i in range(0, 1):
+    for i in range(0, len(line)):
+        list_attributes = []
         list_attributes.append(line[i].strip())
         statement_query = ""
         statement_query = statement_query + "?name aaot:"+line[i].strip()+" ?"+line[i].strip()+" ."
@@ -28,10 +28,15 @@ def multiple_query():
         result = sparql.query(endpoint,statement)
         for row in result.fetchall():
             values = sparql.unpack_row(row)
-            if (values[0] > treshold) and (len(list_attributes) > len(max_list_attributes)):
+            if (values[0] > 50000):
+                print values[0],
+                print list_attributes
+            '''
+            if ((values[0] > treshold) and (len(list_attributes) > len(max_list_attributes))):
                 max_list_attributes = list_attributes
                 print str(values[0]), 
                 print max_list_attributes
+                '''
         for j in range(i+1, len(line)):
             latest_value = 0
             list_attributes.append(line[j].strip())
@@ -41,15 +46,26 @@ def multiple_query():
             for row in result.fetchall():
                 values = sparql.unpack_row(row)
                 latest_value = values[0]
-                print values[0]
-                if (values[0] <= treshold):
+                if (latest_value >= 50000):
+                    print values[0],
+                    print list_attributes
+                else:
                     break
-                if (values[0] > treshold) and (len(list_attributes) > len(max_list_attributes)):
+            if (latest_value < 50000):
+                break
+                '''
+                latest_value = values[0]
+                print values[0],
+                print len(list_attributes),
+                print len(max_list_attributes)
+                if ((values[0] > treshold) and (len(list_attributes) > len(max_list_attributes))):
+                    print "condition checked"
                     max_list_attributes = list_attributes
                     print str(values[0]),
-                    print max_list_attributes
+                    print list_attributes
             if(latest_value == 0):
                 break
+                '''
 
     return max_list_attributes
 
