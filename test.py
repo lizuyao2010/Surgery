@@ -42,3 +42,4 @@ if __name__=='__main__':
       while offset<100000:
          print_result(list_attributes,offset,f)
          offset+=1000
+
