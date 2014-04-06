@@ -1,8 +1,11 @@
+import random
 def findmost(d):
 	max=['',0]
 	for item in d.items():
 		if item[1]>max[1]:
 			max=list(item)
+	if max[0]=='-':
+		max[0]=random.choice(d.keys())
 	return max[0]
 
 def filltable(tableFile):
@@ -28,17 +31,21 @@ def filltable(tableFile):
 				j+=1
 			table.append(row)
 		i+=1
-    mostls=[]
+        mostls=[]
 	for key in d.keys():
 		#find most
 		most=findmost(d[key])
 		mostls.append(most)
+	i=0
 	for row in table:
+		j=0
 		for col in row:
-			if table[row][col]=='-':
-				table[row][col]=mostls[col]
-			print table[row][col],
-
+			if col=='-':
+				table[i][j]=mostls[j]
+			print table[i][j],
+			j+=1
+		print
+		i+=1
 	return table
 if __name__=='__main__':
 	table = filltable('table.txt')
