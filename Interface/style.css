@@ -1,0 +1,103 @@
+body {
+	background-color: #ecf0f1;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 22px;
+	font-weight: 300;
+	color: #515151;
+	width: 97%;
+}
+
+header {
+	text-align: center;
+	font-weight: 700;
+	font-size: 24px;
+}
+
+p {
+	font-weight: 300;
+	font-size: 24;
+}
+
+input {
+	width: 130px;
+	height: 22px;
+}
+
+#Donor{
+	float: left;
+	width: 32%;
+	margin-right: 17px;
+}
+
+#Patient{
+	float:left;
+	width: 32%;
+	margin-right: 17px;
+}
+
+#Result{
+	float: left;
+	width: 32%;
+}
+
+
+section {
+	text-align: center;
+	margin: auto;
+	width: 95%
+}
+
+tr {
+	text-align: center;
+}
+
+td {
+	width: 50%;
+	text-align: center;
+}
+
+input {
+	background: #ffffff;
+	color: #515151;
+	font-size: 95%;
+	padding: 6px 12px 6px 12px;
+	border: 1px solid #7f8c8d;
+	text-align: center;
+	-moz-border-radius:3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari, Chrome */
+	width: 150px;
+	height: 22px;
+}
+input:focus {
+	outline: 0;
+}
+
+SELECT{
+	background: #ffffff;
+	color: #515151;
+	font-size: 95%;
+	padding: 6px 12px 6px 12px;
+	border: 1px solid #7f8c8d;
+	text-align: center;
+	-moz-border-radius:3px; /* Firefox */
+	-webkit-border-radius: 3px; /* Safari, Chrome */
+	text-align:center;
+	width: 176px;
+	height: 35px;
+	text-indent: 58px;
+}
+
+input[type="submit"] {
+	margin: 0;
+    color:#ffffff;
+    background-color:#515151;
+    border:0px;
+	font-size: 95%;
+	width: 155px;
+	height: 35px;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+#text {
+	text-align: left;
+}
