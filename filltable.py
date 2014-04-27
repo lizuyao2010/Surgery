@@ -43,7 +43,7 @@ def filltable(tableFile):
 	for row in table:
 		j=0
 		for col in row:
-			if j=0:
+			if j==0:
 				j+=1
 				continue
 			if col=='-':
