@@ -23,15 +23,18 @@ def filltable(tableFile):
 			line=line.strip().split()
 			j=0
 			for col in line:
-				if not d[j].has_key(col):
-					d[j][col]=1
+				if col=='-':
+					None
 				else:
-					d[j][col]+=1
+					if not d[j].has_key(col):
+						d[j][col]=1
+					else:
+						d[j][col]+=1
 				row.append(col)
 				j+=1
 			table.append(row)
 		i+=1
-        mostls=[]
+    mostls=[]
 	for key in d.keys():
 		#find most
 		most=findmost(d[key])
