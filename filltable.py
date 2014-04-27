@@ -34,7 +34,7 @@ def filltable(tableFile):
 				j+=1
 			table.append(row)
 		i+=1
-    mostls=[]
+        mostls=[]
 	for key in d.keys():
 		#find most
 		most=findmost(d[key])
