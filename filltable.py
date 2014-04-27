@@ -43,6 +43,9 @@ def filltable(tableFile):
 	for row in table:
 		j=0
 		for col in row:
+			if j=0:
+				j+=1
+				continue
 			if col=='-':
 				table[i][j]=mostls[j]
 			print table[i][j],
