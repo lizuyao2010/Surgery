@@ -4,7 +4,7 @@ age
 gender
 height
 weight
-history_cigaretette
+history_cigarette
 COPD
 history_diabetes
 history_peptic_ulcer
