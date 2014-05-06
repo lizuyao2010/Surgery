@@ -80,3 +80,8 @@ select {
 	height: 30px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
+
+#text {
+	text-align: right;
+    padding-right: 45px;
+}
