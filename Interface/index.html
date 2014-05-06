@@ -4,19 +4,26 @@
 		<title>EDAN50 - Project</title>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700,300' rel='stylesheet' type='text/css'>
+		<script>
+			function estimation() {
+				var age_donor = document.getElementById("age_donor").value;
+				current = age_donor * 2;
+				document.getElementbyId("Display").value = age_donor;
+			}
+		</script>
 	</head>
 	<body>
 		<header>
 			<h1>Survival Days Estimator</h1>
 		</header>
 		<section class="Information-form">
-			<form>
+			<form id="formulario">
 				<div id="Donor">
 					<p>Donor's Information</p>
 					<table>
 						<tr>
 						    <td id="text">Age:</td>
-                            <td><input type="number" /></td>
+                            <td><input type="number" id="age_donor" /></td>	
                         </tr>
 			<tr>
 			  <td id="text">Operation Year:</td>
@@ -485,11 +492,11 @@
 					<table>
 						<tr>
 							<td>Survival Days:</td>
-							<td><input type=number /></td>
+							<td><input type="text" id="Display"/></td>
 						</tr>
                         <tr>
 					</table>
-                    <input id="button" type="submit" value="Submit" />
+                    <input id="button" type="button" value="Submit" onClick="estimation()" />
 				</div>
 			</form>
 		</section>
