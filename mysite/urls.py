@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
-from mysite.views import hello,current_datetime,hours_ahead,contact,thanks,surgery_form
+from mysite.views import surgery_form
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -14,12 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    (r'^hello/$',hello),
-    (r'^time/$',current_datetime),
-    (r'^time/plus/(\d{1,2})/$', hours_ahead),
-
-    (r'^contact/$', contact),
-    (r'^contact/thanks/$', thanks),
     (r'^surgery-form/$',surgery_form),
     
 )

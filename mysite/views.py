@@ -1,3 +1,4 @@
+
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response,RequestContext
 from django.core.mail import send_mail
@@ -44,6 +45,7 @@ def contact(request):
 
 def thanks(request):
     return HttpResponse("thanks")
+
 
 def surgery_form(request):
     return render_to_response('surgery_form.html', locals(), context_instance = RequestContext(request))

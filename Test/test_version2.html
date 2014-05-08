@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<title>Test</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700,300' rel='stylesheet' type='text/css'>
+		<script type="text/javascript">
+			function valueForIntegersAttributes(feature_id) {
+				var test = parseFloat(document.getElementById(feature_id).value);
+				if (isNaN(test)) {
+					return 0;
+					}
+				return test;
+			}
+
+			function valueForCheckbox(feature_id) {
+				var test = 0.0;
+				if (document.getElementById(feature_id).checked == true) {
+					test = 1.0;
+					}
+				return test;
+			}
+			
+			function valueForSelect(feature_id) {
+				var list = document.getElementById(feature_id);
+				var IndexSelected = list.selectedIndex;
+				return parseFloat(list.options[IndexSelected].value);
+
+			}
+			function estimateSurvivalDays() 
+			{
+				var age_donor = valueForIntegersAttributes("age_donor");
+				var diagnosis = valueForIntegersAttributes("diagnosis");
+				var op_year_donor = valueForIntegersAttributes("op_year_donor");
+				var age_patient = valueForIntegersAttributes("age_patient");
+				var height_patient = valueForIntegersAttributes("height_patient");
+				var cigarette_donor = valueForCheckbox("cigarette_donor");
+				var cigarette_patient = valueForCheckbox("cigarette_patient");
+				var gender_patient = valueForSelect("gender_patient");
+				var transport_patient = valueForCheckbox("transport_patient");
+				var result = Math.round((transport_patient * (-1.1966e05) + height_patient * 439.48 + gender_patient * 21259 + age_patient * (-1737.7) + diagnosis * (-0.12946) + cigarette_patient*90268 + cigarette_donor*1.0228e05 + op_year_donor * -108.97 + age_donor * 20.074 +2.2021e05)/365);
+				document.getElementById("result").value = result;
+			}
+		</script>
+	</head>	
+	<body>
+		<header>
+			<h1>Survival Days Estimator</h1>
+		</header>
+		<form>
+			<table>
+				<tr>
+					<td colspan="2">Donor's Information</td>
+					<td colspan="2">Patient's Information</td>
+					<td colspan="2">Estimation</td>
+				</tr>
+				<tr>
+					<td id="text">Age:</td>
+					<td><input type="text" id="age_donor"/></td>
+					<td id="text">Diagnosis:</td>
+					<td><input type="text" id="diagnosis"/></input></td>
+					<td id="text">Estimated years:</td>
+					<td><input type="text" id="result"/></input></td>
+				</tr>
+				<tr>
+					<td id="text">Operation Year:</td>
+					<td><input type="text" id="op_year_donor"/></td>
+					<td id="text">Age:</td>
+					<td><input type="text" id="age_patient"/></td>
+					<td colspan="2">
+						<input type="button" value="submit" onClick="estimateSurvivalDays()" />
+					</td>
+				</tr>
+				<tr>
+					<td id="text">Cigarette:</td>
+					<td><input type="checkbox" id="cigarette_donor" /></td>
+					<td id="text">Cigarette:</td>
+					<td><input type="checkbox" id="cigarette_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td id="text">Gender:</td>
+					<td>
+						<select id="gender_patient">
+							<option value="0">M</option>
+							<option value="1">F</option>
+						</select>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td id="text">Height:</td>
+					<td><input type="text" id="height_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td id="text">Transplant:</td>
+					<td><input type="checkbox" id="transplant_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</form>
+	</body>
+</html>

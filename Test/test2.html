@@ -5,14 +5,25 @@
 		<link rel="stylesheet" type="text/css" href="style2.css" />
 		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700,300' rel='stylesheet' type='text/css'>
 		<script type="text/javascript">
+			
+			//Default values for variables if user doesn't input it.
+			var const_age_donor = 18;
+			var const_diagnosis = 1000;
+			var const_age_patient = 58;
+			var const_operation_year = 1993;
+			var const_height_patient = 170;
+
+			// Checks the input of integer values. If it hasn't one it 
+			// takes the default value.
 			function valueForIntegersAttributes(feature_id) {
 				var test = parseFloat(document.getElementById(feature_id).value);
 				if (isNaN(test)) {
-					return 0;
+					return window["const_"+feature_id];
 					}
 				return test;
 			}
 
+			//Checks for value of checkbox. If checked = 1 otherwise 0.
 			function valueForCheckbox(feature_id) {
 				var test = 0.0;
 				if (document.getElementById(feature_id).checked == true) {
@@ -21,12 +32,15 @@
 				return test;
 			}
 			
+			//Gets value for select options in code.
 			function valueForSelect(feature_id) {
 				var list = document.getElementById(feature_id);
 				var IndexSelected = list.selectedIndex;
 				return parseFloat(list.options[IndexSelected].value);
 
 			}
+
+			//Estimation function.
 			function estimateSurvivalDays() 
 			{
 				//Features
@@ -68,6 +82,9 @@
     				cigarette_patient * operation_year * -44.595 +
     				transplant_patient * operation_year * 59.385 +
     				cigarette_donor * operation_year * -51.051);
+					if (result < 0) {
+						result = 0;
+					}
 				document.getElementById("result").value = result;
 			}
 
@@ -75,7 +92,7 @@
 	</head>	
 	<body>
 		<header>
-			<h1>Survival Years Estimator</h1>
+			<h1>Survival Days Estimator</h1>
 		</header>
 		<form>
 			<table>
