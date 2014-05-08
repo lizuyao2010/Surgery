@@ -39,6 +39,7 @@ def filltable(tableFile):
 		#find most
 		most=findmost(d[key])
 		mostls.append(most)
+		print d[key],most
 	i=0
 	for row in table:
 		j=0
@@ -48,9 +49,9 @@ def filltable(tableFile):
 				continue
 			if col=='-':
 				table[i][j]=mostls[j]
-			print table[i][j],
+			#print table[i][j],
 			j+=1
-		print
+		#print
 		i+=1
 	return table
 if __name__=='__main__':
