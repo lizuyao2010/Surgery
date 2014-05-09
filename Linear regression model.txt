@@ -1,0 +1,514 @@
+Linear regression model:
+    survival_time ~ [Linear formula with 184 terms in 32 predictors]
+
+Estimated Coefficients:
+                                                         Estimate          SE          tStat   
+                                                        ___________    __________    __________
+
+    (Intercept)                                          3.0287e+05         15876        19.078
+    diagnosis                                               -1.3251       0.37376       -3.5453
+    age                                                     -11.673        3.9569         -2.95
+    height                                                  0.32625        0.6062       0.53818
+    history_cigarette_Y                                  1.0395e+05         17039        6.1007
+    history_diabetes                                         94.647        15.787        5.9953
+    history_peptic_ulcer                                    -100.99        18.378        -5.495
+    history_perip_vasc_Y                                     -57045         18802        -3.034
+    history_dialysis                                        -84.164        8.6426       -9.7383
+    antiarrythmics_Y                                          32881        6962.5        4.7226
+    implantable_defibrillator_N                              179.07        39.619        4.5199
+    history_transplant_Y                                -1.0289e+05        9350.6       -11.004
+    functional_status                                        56.222        10.316        5.4499
+    creatinine                                               95.174         51.06         1.864
+    serum_bilirubin                                          4.3746        3.6851        1.1871
+    medical_condition                                         14894        2991.9        4.9783
+    inotropic_support_Y                                       53361        6974.3        7.6511
+    mechanical_ventilator_Y                                  -38265         10636       -3.5978
+    ventricular_assist_N                                      44567        8101.2        5.5013
+    age_donor                                               -999.21        128.85        -7.755
+    gender_donor_F                                           -24812        4348.5       -5.7058
+    height_donor                                           -0.42675        2.4842      -0.17179
+    weight_donor                                             30.299        11.229        2.6983
+    history_cigarette_donor_Y                                 25385        8163.5        3.1096
+    history_diabetes_donor                                   204.61        11.925        17.158
+    cytomegalovirus_donor_N                                   47445        5723.1        8.2901
+    cytomegalovirus_donor_ND                                  42841         59356       0.72176
+    cytomegalovirus_donor_U                                  -77587         47605       -1.6298
+    cytomegalovirus_donor_C                                       0             0           NaN
+    cytomegalovirus_donor_I                                   48493    1.0545e+05       0.45989
+    ischemic_time_donor                                       38139        1557.6        24.486
+    cause_of_death_donor                                    -22.722        7.9545       -2.8565
+    dr2_donor                                                174.83         78.56        2.2254
+    ABO_B                                                    -12586        9170.9       -1.3723
+    ABO_AB                                                    13316         11500         1.158
+    ABO_O                                                    -30706        6010.7       -5.1086
+    ABO_donor_AB                                             -97696         15869       -6.1566
+    ABO_donor_A                                              -53204        6320.1       -8.4182
+    ABO_donor_B                                              -71122        9962.6       -7.1389
+    operation_year                                          -150.69        7.9028       -19.069
+    status                                              -1.6442e+05        4080.2       -40.297
+    diagnosis:age                                         0.0061983       0.00266        2.3302
+    diagnosis:functional_status                           0.0012476    0.00020016         6.233
+    diagnosis:creatinine                                   0.051778      0.014861        3.4842
+    diagnosis:medical_condition                             0.20957      0.088153        2.3774
+    diagnosis:inotropic_support_Y                          -0.36431        0.1858       -1.9608
+    diagnosis:ventricular_assist_N                         -0.56915       0.14608       -3.8963
+    diagnosis:history_diabetes_donor                     -0.0011286    0.00025594       -4.4096
+    diagnosis:cause_of_death_donor                      -0.00066109     0.0001192       -5.5458
+    diagnosis:status                                       -0.76231      0.092732       -8.2206
+    age:height                                             0.060414      0.015237        3.9649
+    age:history_peptic_ulcer                             -0.0061531     0.0015737         -3.91
+    age:history_transplant_Y                                -7.0618        1.9665        -3.591
+    age:medical_condition                                   -1.3769       0.37771       -3.6453
+    age:age_donor                                          -0.20325      0.025493       -7.9727
+    age:gender_donor_F                                       3.1292       0.76731        4.0782
+    age:history_cigarette_donor_Y                            3.4489         1.302        2.6488
+    age:cause_of_death_donor                              0.0035914     0.0010275        3.4954
+    age:dr2_donor                                          0.047211      0.014092        3.3502
+    age:status                                               6.3208       0.75295        8.3947
+    height:history_peptic_ulcer                          -0.0032185     0.0015259       -2.1092
+    height:history_dialysis                                0.001786    0.00068556        2.6052
+    height:history_transplant_Y                              4.6469        1.8397        2.5258
+    height:mechanical_ventilator_Y                          -2.5764       0.69048       -3.7313
+    height:gender_donor_F                                   -1.6663        0.5893       -2.8276
+    height:cause_of_death_donor                          -0.0014659    0.00078121       -1.8765
+    height:dr2_donor                                      -0.028319      0.010077       -2.8103
+    height:status                                             2.413       0.62161        3.8818
+    history_cigarette_Y:history_diabetes                   -0.38016        0.1411       -2.6942
+    history_cigarette_Y:history_dialysis                   -0.22823       0.10729       -2.1271
+    history_cigarette_Y:implantable_defibrillator_N         -168.31        73.073       -2.3034
+    history_cigarette_Y:functional_status                   0.37924       0.08201        4.6243
+    history_cigarette_Y:medical_condition                    83.168        27.201        3.0575
+    history_cigarette_Y:ischemic_time_donor                  42.201        16.317        2.5863
+    history_cigarette_Y:operation_year                       -52.16        8.4957       -6.1396
+    history_cigarette_Y:status                               216.57        53.117        4.0772
+    history_diabetes:history_peptic_ulcer               -0.00054003    0.00014289       -3.7793
+    history_diabetes:history_dialysis                   -0.00073348    0.00014852       -4.9387
+    history_diabetes:functional_status                   0.00067535    0.00016056        4.2062
+    history_diabetes:inotropic_support_Y                   -0.21709      0.076483       -2.8384
+    history_diabetes:mechanical_ventilator_Y                0.82121       0.22882        3.5889
+    history_diabetes:ventricular_assist_N                   0.58799       0.16457         3.573
+    history_diabetes:gender_donor_F                         0.11267      0.042819        2.6314
+    history_diabetes:history_cigarette_donor_Y              0.71004       0.14121        5.0283
+    history_diabetes:history_diabetes_donor             -0.00061624    0.00027928       -2.2065
+    history_diabetes:ischemic_time_donor                   -0.20952      0.018802       -11.143
+    history_diabetes:cause_of_death_donor                0.00068883    0.00013024         5.289
+    history_diabetes:dr2_donor                            0.0065082     0.0017001        3.8281
+    history_diabetes:ABO_donor_AB                           0.26389        0.1491        1.7699
+    history_diabetes:ABO_donor_A                            0.24361      0.046976        5.1859
+    history_diabetes:ABO_donor_B                            0.25517      0.083078        3.0714
+    history_diabetes:operation_year                       -0.047242     0.0078957       -5.9832
+    history_diabetes:status                                 -1.0135      0.061694       -16.429
+    history_peptic_ulcer:history_dialysis                0.00050185    0.00013087        3.8347
+    history_peptic_ulcer:implantable_defibrillator_N        0.39127       0.11786        3.3198
+    history_peptic_ulcer:functional_status              -0.00036096    0.00014859       -2.4292
+    history_peptic_ulcer:creatinine                        0.018977     0.0033671        5.6359
+    history_peptic_ulcer:medical_condition                -0.091357      0.038927       -2.3469
+    history_peptic_ulcer:ventricular_assist_N               0.25677       0.14079        1.8237
+    history_peptic_ulcer:age_donor                        0.0087759     0.0017917        4.8982
+    history_peptic_ulcer:cytomegalovirus_donor_N            0.13168      0.064824        2.0313
+    history_peptic_ulcer:cytomegalovirus_donor_ND           0.12055       0.56035       0.21514
+    history_peptic_ulcer:cytomegalovirus_donor_U            0.97698       0.26382        3.7032
+    history_peptic_ulcer:cytomegalovirus_donor_C                  0             0           NaN
+    history_peptic_ulcer:cytomegalovirus_donor_I            0.14916        1.1758       0.12685
+    history_peptic_ulcer:cause_of_death_donor            -0.0016923    0.00013258       -12.764
+    history_peptic_ulcer:ABO_B                               0.2244      0.087935        2.5519
+    history_peptic_ulcer:ABO_AB                            0.090387       0.12154       0.74366
+    history_peptic_ulcer:ABO_O                              0.41422       0.06231        6.6476
+    history_peptic_ulcer:operation_year                    0.050359     0.0091792        5.4862
+    history_peptic_ulcer:status                              1.9252      0.063605        30.268
+    history_perip_vasc_Y:ischemic_time_donor                  -68.9        31.743       -2.1706
+    history_perip_vasc_Y:operation_year                      28.542        9.4086        3.0336
+    history_dialysis:functional_status                  -0.00028675    6.6607e-05       -4.3051
+    history_dialysis:creatinine                           -0.015034     0.0038109        -3.945
+    history_dialysis:ventricular_assist_N                  -0.16551      0.059924        -2.762
+    history_dialysis:gender_donor_F                        0.091995      0.033929        2.7114
+    history_dialysis:history_cigarette_donor_Y             -0.12898      0.059302       -2.1749
+    history_dialysis:history_diabetes_donor             -0.00086557    0.00029741       -2.9104
+    history_dialysis:cytomegalovirus_donor_N               -0.17769      0.041064       -4.3272
+    history_dialysis:cytomegalovirus_donor_ND              -0.12129       0.39356      -0.30818
+    history_dialysis:cytomegalovirus_donor_U                 1.5765       0.28315        5.5679
+    history_dialysis:cytomegalovirus_donor_C                      0             0           NaN
+    history_dialysis:cytomegalovirus_donor_I                 1.0138        1.8388       0.55134
+    history_dialysis:ischemic_time_donor                   -0.20477      0.014244       -14.375
+    history_dialysis:cause_of_death_donor                0.00028304    6.6041e-05        4.2858
+    history_dialysis:ABO_B                                  0.12093      0.081629        1.4814
+    history_dialysis:ABO_AB                             -0.00081518       0.10096    -0.0080745
+    history_dialysis:ABO_O                                  0.27964      0.051074        5.4753
+    history_dialysis:ABO_donor_AB                           0.45706       0.14417        3.1703
+    history_dialysis:ABO_donor_A                            0.35386      0.049809        7.1044
+    history_dialysis:ABO_donor_B                            0.34348      0.083974        4.0903
+    history_dialysis:operation_year                        0.042245     0.0043322        9.7514
+    antiarrythmics_Y:inotropic_support_Y                    -88.162        41.233       -2.1382
+    antiarrythmics_Y:ventricular_assist_N                   -135.55        45.096       -3.0058
+    antiarrythmics_Y:age_donor                                2.532        1.1301        2.2406
+    antiarrythmics_Y:cause_of_death_donor                    0.1689      0.073008        2.3134
+    antiarrythmics_Y:operation_year                         -16.371        3.4747       -4.7116
+    antiarrythmics_Y:status                                 -203.04        35.227       -5.7638
+    implantable_defibrillator_N:creatinine                  -6.1313        3.7119       -1.6518
+    implantable_defibrillator_N:age_donor                   -3.1227        1.2455       -2.5071
+    history_transplant_Y:functional_status                 -0.29784      0.088429       -3.3681
+    history_transplant_Y:ABO_B                               93.134        94.234       0.98832
+    history_transplant_Y:ABO_AB                              151.69        116.72        1.2996
+    history_transplant_Y:ABO_O                               184.49        66.554         2.772
+    history_transplant_Y:operation_year                       51.09        4.6652        10.951
+    history_transplant_Y:status                              171.43        64.083        2.6751
+    functional_status:serum_bilirubin                     -0.019448     0.0048494       -4.0104
+    functional_status:medical_condition                    -0.55295       0.04554       -12.142
+    functional_status:inotropic_support_Y                  -0.42109      0.060826       -6.9228
+    functional_status:mechanical_ventilator_Y              -0.95106       0.25362       -3.7499
+    functional_status:ventricular_assist_N                  -0.5948      0.049928       -11.913
+    functional_status:gender_donor_F                      -0.098929      0.035391       -2.7953
+    functional_status:history_cigarette_donor_Y            -0.12134      0.041892       -2.8965
+    functional_status:history_diabetes_donor              0.0012841    0.00019632        6.5406
+    functional_status:cause_of_death_donor              -0.00024458    7.3574e-05       -3.3243
+    functional_status:operation_year                      -0.027666     0.0051408       -5.3816
+    functional_status:status                               -0.10701      0.038442       -2.7836
+    creatinine:medical_condition                            -6.2534        1.7185        -3.639
+    creatinine:age_donor                                     0.2053       0.10383        1.9773
+    creatinine:weight_donor                                 -2.2591       0.72821       -3.1023
+    creatinine:cause_of_death_donor                       0.0086606     0.0030458        2.8435
+    medical_condition:inotropic_support_Y                    42.564        21.053        2.0218
+    medical_condition:gender_donor_F                        -38.489        14.611       -2.6343
+    medical_condition:history_diabetes_donor                0.32028      0.079539        4.0267
+    medical_condition:ischemic_time_donor                    38.716        6.1308        6.3149
+    medical_condition:dr2_donor                             0.77082       0.26808        2.8754
+    medical_condition:operation_year                        -7.3119        1.4866       -4.9186
+    inotropic_support_Y:ischemic_time_donor                 -54.335        12.191       -4.4571
+    inotropic_support_Y:cause_of_death_donor               -0.25854      0.052069       -4.9654
+    inotropic_support_Y:dr2_donor                           -1.9656       0.66234       -2.9677
+    inotropic_support_Y:operation_year                      -26.074          3.48       -7.4927
+    inotropic_support_Y:status                              -253.53        33.444       -7.5807
+    mechanical_ventilator_Y:operation_year                   19.699        5.2945        3.7206
+    mechanical_ventilator_Y:status                          -156.03         69.63       -2.2408
+    ventricular_assist_N:history_diabetes_donor             0.62705       0.22786        2.7519
+    ventricular_assist_N:ischemic_time_donor                -116.29         10.93       -10.639
+    ventricular_assist_N:dr2_donor                           -2.351       0.67327       -3.4918
+    ventricular_assist_N:ABO_donor_AB                        16.549        75.277       0.21984
+    ventricular_assist_N:ABO_donor_A                         56.811        29.678        1.9143
+    ventricular_assist_N:ABO_donor_B                         122.23        46.185        2.6464
+    ventricular_assist_N:operation_year                     -21.419        4.0411       -5.3002
+    ventricular_assist_N:status                             -152.63        35.056        -4.354
+    age_donor:operation_year                                0.50146      0.064478        7.7773
+    gender_donor_F:cytomegalovirus_donor_N                    66.79        28.446        2.3479
+    gender_donor_F:cytomegalovirus_donor_ND                 -688.02        229.26       -3.0011
+    gender_donor_F:cytomegalovirus_donor_U                   64.615        208.69       0.30962
+    gender_donor_F:cytomegalovirus_donor_C                        0             0           NaN
+    gender_donor_F:cytomegalovirus_donor_I                  -254.14        470.86      -0.53974
+    gender_donor_F:operation_year                            12.529        2.1693        5.7755
+    gender_donor_F:status                                   -56.352        24.606       -2.2902
+    height_donor:weight_donor                              -0.14531      0.063379       -2.2927
+    history_cigarette_donor_Y:operation_year                -12.652        4.0797       -3.1012
+    history_cigarette_donor_Y:status                        -258.89        38.068       -6.8008
+    history_diabetes_donor:ischemic_time_donor              -0.2013       0.01719        -11.71
+    history_diabetes_donor:operation_year                  -0.10203     0.0059749       -17.077
+    history_diabetes_donor:status                           -1.1111      0.080473       -13.807
+    cytomegalovirus_donor_N:ischemic_time_donor             -41.447        9.9596       -4.1615
+    cytomegalovirus_donor_ND:ischemic_time_donor            -227.43        81.674       -2.7847
+    cytomegalovirus_donor_U:ischemic_time_donor             -207.99         67.92       -3.0623
+    cytomegalovirus_donor_C:ischemic_time_donor                   0             0           NaN
+    cytomegalovirus_donor_I:ischemic_time_donor             -27.786        158.01      -0.17585
+    cytomegalovirus_donor_N:cause_of_death_donor          -0.067681       0.04495       -1.5057
+    cytomegalovirus_donor_ND:cause_of_death_donor           0.18728       0.26006       0.72015
+    cytomegalovirus_donor_U:cause_of_death_donor            -1.0623       0.26726       -3.9749
+    cytomegalovirus_donor_C:cause_of_death_donor                  0             0           NaN
+    cytomegalovirus_donor_I:cause_of_death_donor            0.18185       0.96308       0.18882
+    cytomegalovirus_donor_N:operation_year                  -23.578        2.8579       -8.2501
+    cytomegalovirus_donor_ND:operation_year                  -20.93        29.656      -0.70577
+    cytomegalovirus_donor_U:operation_year                   38.938         23.79        1.6367
+    cytomegalovirus_donor_C:operation_year                 0.081177       0.79487       0.10213
+    cytomegalovirus_donor_I:operation_year                  -24.065        52.581      -0.45768
+    cytomegalovirus_donor_N:status                          -141.06        28.905       -4.8804
+    cytomegalovirus_donor_ND:status                          -370.8        222.95       -1.6632
+    cytomegalovirus_donor_U:status                          -258.93        212.61       -1.2179
+    cytomegalovirus_donor_C:status                                0             0           NaN
+    cytomegalovirus_donor_I:status                          -1.0985        495.24    -0.0022182
+    ischemic_time_donor:cause_of_death_donor                0.09643      0.013488        7.1494
+    ischemic_time_donor:dr2_donor                          -0.56205       0.17361       -3.2373
+    ischemic_time_donor:ABO_donor_AB                         47.851        18.659        2.5646
+    ischemic_time_donor:ABO_donor_A                          9.7315        7.1722        1.3568
+    ischemic_time_donor:ABO_donor_B                          20.415        11.262        1.8127
+    ischemic_time_donor:operation_year                      -19.016       0.77816       -24.437
+    ischemic_time_donor:status                              -88.346        8.0055       -11.036
+    cause_of_death_donor:dr2_donor                        0.0013867    0.00077927        1.7795
+    cause_of_death_donor:operation_year                    0.011639     0.0039692        2.9323
+    cause_of_death_donor:status                             0.17386      0.036888        4.7132
+    dr2_donor:operation_year                               -0.08461      0.039368       -2.1492
+    dr2_donor:status                                        -1.1363       0.45282       -2.5093
+    ABO_B:ABO_donor_AB                                      -447.14        428.59       -1.0433
+    ABO_AB:ABO_donor_AB                                     -376.55        365.22        -1.031
+    ABO_O:ABO_donor_AB                                      -283.34        498.04      -0.56891
+    ABO_B:ABO_donor_A                                       -561.14        356.64       -1.5734
+    ABO_AB:ABO_donor_A                                         -161        81.226       -1.9821
+    ABO_O:ABO_donor_A                                       -516.22        150.03       -3.4408
+    ABO_B:ABO_donor_B                                        283.36        256.33        1.1055
+    ABO_AB:ABO_donor_B                                        155.7        268.11       0.58074
+    ABO_O:ABO_donor_B                                       -60.716         333.9      -0.18184
+    ABO_B:operation_year                                     6.2844        4.5852        1.3706
+    ABO_AB:operation_year                                   -6.5926        5.7524       -1.1461
+    ABO_O:operation_year                                     15.346        3.0068        5.1035
+    ABO_donor_AB:operation_year                               48.74        7.9087        6.1629
+    ABO_donor_A:operation_year                               26.537        3.1611        8.3949
+    ABO_donor_B:operation_year                               35.275        4.9718         7.095
+    ABO_donor_AB:status                                      308.29        68.758        4.4837
+    ABO_donor_A:status                                       101.69        24.367        4.1733
+    ABO_donor_B:status                                       182.14        40.383        4.5104
+    operation_year:status                                    81.755        2.0326        40.221
+
+
+                                                          pValue   
+                                                        ___________
+
+    (Intercept)                                          5.4609e-81
+    diagnosis                                            0.00039242
+    age                                                   0.0031788
+    height                                                  0.59045
+    history_cigarette_Y                                    1.06e-09
+    history_diabetes                                     2.0381e-09
+    history_peptic_ulcer                                 3.9167e-08
+    history_perip_vasc_Y                                  0.0024138
+    history_dialysis                                     2.1195e-22
+    antiarrythmics_Y                                     2.3316e-06
+    implantable_defibrillator_N                          6.1935e-06
+    history_transplant_Y                                 3.8083e-28
+    functional_status                                    5.0511e-08
+    creatinine                                              0.06233
+    serum_bilirubin                                         0.23519
+    medical_condition                                    6.4246e-07
+    inotropic_support_Y                                  2.0107e-14
+    mechanical_ventilator_Y                              0.00032103
+    ventricular_assist_N                                 3.7795e-08
+    age_donor                                            8.9229e-15
+    gender_donor_F                                       1.1612e-08
+    height_donor                                            0.86361
+    weight_donor                                           0.006971
+    history_cigarette_donor_Y                             0.0018737
+    history_diabetes_donor                               6.8366e-66
+    cytomegalovirus_donor_N                              1.1464e-16
+    cytomegalovirus_donor_ND                                0.47045
+    cytomegalovirus_donor_U                                 0.10315
+    cytomegalovirus_donor_C                                     NaN
+    cytomegalovirus_donor_I                                  0.6456
+    ischemic_time_donor                                 5.3626e-132
+    cause_of_death_donor                                  0.0042847
+    dr2_donor                                              0.026056
+    ABO_B                                                   0.16996
+    ABO_AB                                                  0.24688
+    ABO_O                                                3.2519e-07
+    ABO_donor_AB                                         7.4613e-10
+    ABO_donor_A                                          3.8764e-17
+    ABO_donor_B                                          9.4741e-13
+    operation_year                                        6.516e-81
+    status                                                        0
+    diagnosis:age                                            0.0198
+    diagnosis:functional_status                          4.5954e-10
+    diagnosis:creatinine                                 0.00049384
+    diagnosis:medical_condition                            0.017437
+    diagnosis:inotropic_support_Y                          0.049911
+    diagnosis:ventricular_assist_N                       9.7754e-05
+    diagnosis:history_diabetes_donor                     1.0368e-05
+    diagnosis:cause_of_death_donor                       2.9335e-08
+    diagnosis:status                                     2.0503e-16
+    age:height                                           7.3491e-05
+    age:history_peptic_ulcer                             9.2354e-05
+    age:history_transplant_Y                             0.00032964
+    age:medical_condition                                 0.0002672
+    age:age_donor                                        1.5689e-15
+    age:gender_donor_F                                   4.5424e-05
+    age:history_cigarette_donor_Y                         0.0080782
+    age:cause_of_death_donor                             0.00047362
+    age:dr2_donor                                        0.00080796
+    age:status                                           4.7323e-17
+    height:history_peptic_ulcer                             0.03493
+    height:history_dialysis                               0.0091828
+    height:history_transplant_Y                            0.011544
+    height:mechanical_ventilator_Y                       0.00019063
+    height:gender_donor_F                                 0.0046909
+    height:cause_of_death_donor                            0.060591
+    height:dr2_donor                                      0.0049512
+    height:status                                        0.00010374
+    history_cigarette_Y:history_diabetes                  0.0070575
+    history_cigarette_Y:history_dialysis                   0.033415
+    history_cigarette_Y:implantable_defibrillator_N        0.021261
+    history_cigarette_Y:functional_status                3.7627e-06
+    history_cigarette_Y:medical_condition                 0.0022326
+    history_cigarette_Y:ischemic_time_donor               0.0097039
+    history_cigarette_Y:operation_year                   8.3063e-10
+    history_cigarette_Y:status                           4.5617e-05
+    history_diabetes:history_peptic_ulcer                0.00015738
+    history_diabetes:history_dialysis                    7.8766e-07
+    history_diabetes:functional_status                   2.5992e-05
+    history_diabetes:inotropic_support_Y                  0.0045356
+    history_diabetes:mechanical_ventilator_Y             0.00033227
+    history_diabetes:ventricular_assist_N                0.00035312
+    history_diabetes:gender_donor_F                       0.0085049
+    history_diabetes:history_cigarette_donor_Y           4.9565e-07
+    history_diabetes:history_diabetes_donor                0.027351
+    history_diabetes:ischemic_time_donor                  8.067e-29
+    history_diabetes:cause_of_death_donor                1.2323e-07
+    history_diabetes:dr2_donor                           0.00012923
+    history_diabetes:ABO_donor_AB                          0.076746
+    history_diabetes:ABO_donor_A                          2.154e-07
+    history_diabetes:ABO_donor_B                           0.002131
+    history_diabetes:operation_year                      2.1954e-09
+    history_diabetes:status                              1.4472e-60
+    history_peptic_ulcer:history_dialysis                 0.0001258
+    history_peptic_ulcer:implantable_defibrillator_N     0.00090129
+    history_peptic_ulcer:functional_status                 0.015133
+    history_peptic_ulcer:creatinine                      1.7464e-08
+    history_peptic_ulcer:medical_condition                 0.018932
+    history_peptic_ulcer:ventricular_assist_N              0.068198
+    history_peptic_ulcer:age_donor                       9.6888e-07
+    history_peptic_ulcer:cytomegalovirus_donor_N           0.042229
+    history_peptic_ulcer:cytomegalovirus_donor_ND           0.82966
+    history_peptic_ulcer:cytomegalovirus_donor_U           0.000213
+    history_peptic_ulcer:cytomegalovirus_donor_C                NaN
+    history_peptic_ulcer:cytomegalovirus_donor_I            0.89906
+    history_peptic_ulcer:cause_of_death_donor            2.7952e-37
+    history_peptic_ulcer:ABO_B                             0.010717
+    history_peptic_ulcer:ABO_AB                             0.45708
+    history_peptic_ulcer:ABO_O                           2.9945e-11
+    history_peptic_ulcer:operation_year                  4.1162e-08
+    history_peptic_ulcer:status                         2.7375e-200
+    history_perip_vasc_Y:ischemic_time_donor               0.029964
+    history_perip_vasc_Y:operation_year                   0.0024173
+    history_dialysis:functional_status                   1.6709e-05
+    history_dialysis:creatinine                          7.9848e-05
+    history_dialysis:ventricular_assist_N                 0.0057465
+    history_dialysis:gender_donor_F                       0.0067011
+    history_dialysis:history_cigarette_donor_Y             0.029637
+    history_dialysis:history_diabetes_donor               0.0036106
+    history_dialysis:cytomegalovirus_donor_N             1.5119e-05
+    history_dialysis:cytomegalovirus_donor_ND               0.75795
+    history_dialysis:cytomegalovirus_donor_U             2.5846e-08
+    history_dialysis:cytomegalovirus_donor_C                    NaN
+    history_dialysis:cytomegalovirus_donor_I                 0.5814
+    history_dialysis:ischemic_time_donor                 8.2642e-47
+    history_dialysis:cause_of_death_donor                1.8228e-05
+    history_dialysis:ABO_B                                   0.1385
+    history_dialysis:ABO_AB                                 0.99356
+    history_dialysis:ABO_O                               4.3787e-08
+    history_dialysis:ABO_donor_AB                         0.0015234
+    history_dialysis:ABO_donor_A                          1.217e-12
+    history_dialysis:ABO_donor_B                         4.3113e-05
+    history_dialysis:operation_year                      1.8633e-22
+    antiarrythmics_Y:inotropic_support_Y                   0.032507
+    antiarrythmics_Y:ventricular_assist_N                 0.0026496
+    antiarrythmics_Y:age_donor                             0.025056
+    antiarrythmics_Y:cause_of_death_donor                  0.020701
+    antiarrythmics_Y:operation_year                       2.461e-06
+    antiarrythmics_Y:status                               8.251e-09
+    implantable_defibrillator_N:creatinine                 0.098585
+    implantable_defibrillator_N:age_donor                  0.012174
+    history_transplant_Y:functional_status               0.00075715
+    history_transplant_Y:ABO_B                                0.323
+    history_transplant_Y:ABO_AB                             0.19374
+    history_transplant_Y:ABO_O                            0.0055719
+    history_transplant_Y:operation_year                  6.7988e-28
+    history_transplant_Y:status                           0.0074709
+    functional_status:serum_bilirubin                     6.066e-05
+    functional_status:medical_condition                  6.6947e-34
+    functional_status:inotropic_support_Y                4.4544e-12
+    functional_status:mechanical_ventilator_Y            0.00017701
+    functional_status:ventricular_assist_N               1.0669e-32
+    functional_status:gender_donor_F                       0.005186
+    functional_status:history_cigarette_donor_Y           0.0037743
+    functional_status:history_diabetes_donor             6.1569e-11
+    functional_status:cause_of_death_donor               0.00088686
+    functional_status:operation_year                     7.4001e-08
+    functional_status:status                              0.0053769
+    creatinine:medical_condition                         0.00027386
+    creatinine:age_donor                                   0.048016
+    creatinine:weight_donor                               0.0019206
+    creatinine:cause_of_death_donor                       0.0044633
+    medical_condition:inotropic_support_Y                    0.0432
+    medical_condition:gender_donor_F                      0.0084332
+    medical_condition:history_diabetes_donor             5.6612e-05
+    medical_condition:ischemic_time_donor                2.7144e-10
+    medical_condition:dr2_donor                           0.0040363
+    medical_condition:operation_year                     8.7303e-07
+    inotropic_support_Y:ischemic_time_donor              8.3152e-06
+    inotropic_support_Y:cause_of_death_donor             6.8689e-07
+    inotropic_support_Y:dr2_donor                         0.0030014
+    inotropic_support_Y:operation_year                   6.8052e-14
+    inotropic_support_Y:status                           3.4687e-14
+    mechanical_ventilator_Y:operation_year               0.00019885
+    mechanical_ventilator_Y:status                          0.02504
+    ventricular_assist_N:history_diabetes_donor           0.0059263
+    ventricular_assist_N:ischemic_time_donor             2.0233e-26
+    ventricular_assist_N:dr2_donor                       0.00047993
+    ventricular_assist_N:ABO_donor_AB                         0.826
+    ventricular_assist_N:ABO_donor_A                       0.055589
+    ventricular_assist_N:ABO_donor_B                      0.0081356
+    ventricular_assist_N:operation_year                  1.1594e-07
+    ventricular_assist_N:status                          1.3382e-05
+    age_donor:operation_year                             7.4797e-15
+    gender_donor_F:cytomegalovirus_donor_N                 0.018879
+    gender_donor_F:cytomegalovirus_donor_ND               0.0026911
+    gender_donor_F:cytomegalovirus_donor_U                  0.75685
+    gender_donor_F:cytomegalovirus_donor_C                      NaN
+    gender_donor_F:cytomegalovirus_donor_I                  0.58938
+    gender_donor_F:operation_year                        7.6972e-09
+    gender_donor_F:status                                  0.022012
+    height_donor:weight_donor                              0.021867
+    history_cigarette_donor_Y:operation_year              0.0019279
+    history_cigarette_donor_Y:status                     1.0467e-11
+    history_diabetes_donor:ischemic_time_donor           1.1884e-31
+    history_diabetes_donor:operation_year                2.7586e-65
+    history_diabetes_donor:status                        2.5561e-43
+    cytomegalovirus_donor_N:ischemic_time_donor          3.1646e-05
+    cytomegalovirus_donor_ND:ischemic_time_donor          0.0053593
+    cytomegalovirus_donor_U:ischemic_time_donor            0.002197
+    cytomegalovirus_donor_C:ischemic_time_donor                 NaN
+    cytomegalovirus_donor_I:ischemic_time_donor             0.86041
+    cytomegalovirus_donor_N:cause_of_death_donor            0.13215
+    cytomegalovirus_donor_ND:cause_of_death_donor           0.47144
+    cytomegalovirus_donor_U:cause_of_death_donor         7.0464e-05
+    cytomegalovirus_donor_C:cause_of_death_donor                NaN
+    cytomegalovirus_donor_I:cause_of_death_donor            0.85023
+    cytomegalovirus_donor_N:operation_year               1.6019e-16
+    cytomegalovirus_donor_ND:operation_year                 0.48033
+    cytomegalovirus_donor_U:operation_year                  0.10169
+    cytomegalovirus_donor_C:operation_year                  0.91866
+    cytomegalovirus_donor_I:operation_year                  0.64718
+    cytomegalovirus_donor_N:status                       1.0607e-06
+    cytomegalovirus_donor_ND:status                        0.096281
+    cytomegalovirus_donor_U:status                          0.22328
+    cytomegalovirus_donor_C:status                              NaN
+    cytomegalovirus_donor_I:status                          0.99823
+    ischemic_time_donor:cause_of_death_donor              8.777e-13
+    ischemic_time_donor:dr2_donor                         0.0012069
+    ischemic_time_donor:ABO_donor_AB                       0.010332
+    ischemic_time_donor:ABO_donor_A                         0.17484
+    ischemic_time_donor:ABO_donor_B                        0.069878
+    ischemic_time_donor:operation_year                  1.7443e-131
+    ischemic_time_donor:status                           2.6743e-28
+    cause_of_death_donor:dr2_donor                         0.075161
+    cause_of_death_donor:operation_year                   0.0033653
+    cause_of_death_donor:status                          2.4421e-06
+    dr2_donor:operation_year                                0.03162
+    dr2_donor:status                                       0.012099
+    ABO_B:ABO_donor_AB                                      0.29682
+    ABO_AB:ABO_donor_AB                                     0.30253
+    ABO_O:ABO_donor_AB                                      0.56942
+    ABO_B:ABO_donor_A                                       0.11563
+    ABO_AB:ABO_donor_A                                      0.04747
+    ABO_O:ABO_donor_A                                    0.00058034
+    ABO_B:ABO_donor_B                                       0.26896
+    ABO_AB:ABO_donor_B                                      0.56141
+    ABO_O:ABO_donor_B                                       0.85571
+    ABO_B:operation_year                                    0.17051
+    ABO_AB:operation_year                                   0.25177
+    ABO_O:operation_year                                   3.34e-07
+    ABO_donor_AB:operation_year                          7.1723e-10
+    ABO_donor_A:operation_year                           4.7257e-17
+    ABO_donor_B:operation_year                           1.3026e-12
+    ABO_donor_AB:status                                  7.3436e-06
+    ABO_donor_A:status                                   3.0053e-05
+    ABO_donor_B:status                                   6.4796e-06
+    operation_year:status                                         0
+
+
+Number of observations: 95639, Error degrees of freedom: 95398
+Root Mean Squared Error: 1.58e+03
+R-squared: 0.385,  Adjusted R-Squared 0.384
+F-statistic vs. constant model: 249, p-value = 0
