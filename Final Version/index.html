@@ -78,6 +78,15 @@
 				return test;
 			}
 
+			function negatedValueForCheckbox(feature_id){
+				var test = 1.0;
+				if (document.getElementById(feature_id).checked == true) {
+					test = 0.0;
+				}
+				return test;
+
+			}
+
 			function estimateSurvivalDays() {
 
 				var age_donor = valueForIntegersAttributes("age_donor");
@@ -155,7 +164,7 @@
 				var iv_therapy = valueForCheckbox("iv_therapy");
 				var antiarrythmics = valueForCheckbox("antiarrythmics");
 				var amiodarone = valueForCheckbox("amiodarone");
-				var defibrilator = valueForCheckbox("defibrilator");
+				var defibrilator = negatedValueForCheckbox("defibrilator");
 				var transfusion = valueForCheckbox("transfusion");
 				var transplant = valueForCheckbox("transplant");
 				var card_surg = valueForCheckbox("card_surg");
@@ -165,7 +174,7 @@
 				var mechanical_ventilator = valueForCheckbox("mechanical_ventilator");
 				var ballon_pump = valueForCheckbox("ballon_pump");
 				var ECMO = valueForCheckbox("ECMO");
-				var ventricular_assist = valueForCheckbox("ventricular_assist");
+				var ventricular_assist = negatedValueForCheckbox("ventricular_assist");
 				var status = valueForIntegersAttributes("status");
 
 				var result = Math.round(3.0287e+05 +
