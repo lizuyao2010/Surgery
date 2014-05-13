@@ -5,6 +5,420 @@
 		<meta charset="utf-8">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>		
 		<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+		<script>
+			//Default values
+			var const_age_donor = 18;
+			var const_age_patient = 58;
+			var const_height_donor = 180;
+			var const_height_patient = 170;
+			var const_weight_donor = 70;
+			var const_weight_patient = 70;
+			var const_operation_year = 1993;
+			var const_diagnosis = 1000;
+			var const_diabetes_donor = 1;
+			var const_diabetes_patient = 1;
+			var const_hypertension_donor = 1;
+			var const_LVEF = 60;
+			var const_peptic_ulcer_patient = 1;
+			var const_creatinine_donor = 1;
+			var const_dialysis_patient = 1;
+			var const_BUN_donor = 9;
+			var const_angina_patient = 1;
+			var const_serum_bilirubin_donor = 0.5;
+			var const_serum_bilirubin_patient = 0.5;
+			var const_ischemic_time_donor = 0.049995422;
+			var const_PRA_patient = 0;
+			var const_cause_of_death_donor = 3;
+			var const_oxygen_exercise_patient = 12;
+			var const_A1_donor = 2;
+			var const_A2_donor = 3;
+			var const_B1_donor = 7;
+			var const_B2_donor = 44;
+			var const_DR1_donor = 4;
+			var const_DR2_donor = 7;
+			var const_A1_patient = 2;
+			var const_A2_patient = 3;
+			var const_B1_patient = 7;
+			var const_B2_patient = 44;
+			var const_DR1_patient = 4;
+			var const_DR2_patient = 15;
+			var const_functional_status = 996;
+			var const_hemo_pcw = 20;
+			var const_hemo_co = 4;
+			var const_hemo_pa_sys = 40;
+			var const_creatine_patient = 1;
+			var const_serum_albumin = 4;
+			var const_medical_condition = 3;
+			var const_status = 0;
+
+			// Checks the input of integer values. If it hasn't one it 
+			// takes the default value.
+			function valueForIntegersAttributes(feature_id) {
+				var test = parseFloat(document.getElementById(feature_id).value);
+				if (isNaN(test)) {
+					return window["const_"+feature_id];
+					}
+				return test;
+			}
+
+			//Gets value for select options in code.
+			function valueForSelect(feature_id) {
+				var list = document.getElementById(feature_id);
+				var IndexSelected = list.selectedIndex;
+				return parseFloat(list.options[IndexSelected].value);
+
+			}
+
+			//Checks for value of checkbox. If checked = 1 otherwise 0.
+			function valueForCheckbox(feature_id) {
+				var test = 0.0;
+				if (document.getElementById(feature_id).checked == true) {
+					test = 1.0;
+					}
+				return test;
+			}
+
+			function estimateSurvivalDays() {
+
+				var age_donor = valueForIntegersAttributes("age_donor");
+				var age_patient = valueForIntegersAttributes("age_patient");
+				var gender_donor = valueForSelect("gender_donor");
+				var gender_patient = valueForSelect("gender_patient");
+				var height_donor = valueForIntegersAttributes("height_donor");
+				var height_patient = valueForIntegersAttributes("height_patient");
+				var weight_donor = valueForIntegersAttributes("weight_donor");
+				var weight_patient = valueForIntegersAttributes("weight_patient");
+				var operation_year = valueForIntegersAttributes("operation_year");
+				var diagnosis = valueForIntegersAttributes("diagnosis");
+				var cigarette_donor = valueForCheckbox("cigarette_donor");
+				var cigarette_patient = valueForCheckbox("cigarette_patient");
+				var alcohol_donor = valueForCheckbox("alcohol_donor");
+				var cocaine_donor = valueForCheckbox("cocaine_donor");
+				var cigarette_patient = valueForCheckbox("cigarette_patient");
+				var COPD = valueForCheckbox("COPD");
+				var perip_vasc_patient = valueForCheckbox("perip_vasc_patient");
+				var diabetes_donor = valueForIntegersAttributes("diabetes_donor");
+				var diabetes_patient = valueForIntegersAttributes("diabetes_patient");
+				var hypertension_donor = valueForIntegersAttributes("hypertension_donor");
+				var hypertension_patient = valueForCheckbox("hypertension_patient");
+				var LVEF_donor = valueForIntegersAttributes("LVEF_donor");
+				var peptic_ulcer_patient = valueForIntegersAttributes("peptic_ulcer_patient");
+				var cytomegalovirus_donor_N = valueForCheckbox("cytomegalovirus_donor_N");
+				var cytomegalovirus_donor_ND = valueForCheckbox("cytomegalovirus_donor_ND");
+				var cytomegalovirus_donor_U = valueForCheckbox("cytomegalovirus_donor_U");
+				var cytomegalovirus_donor_C = valueForCheckbox("cytomegalovirus_donor_C");
+				var cytomegalovirus_donor_I = valueForCheckbox("cytomegalovirus_donor_I");
+				var cytomegalovirus_patient_N = valueForCheckbox("cytomegalovirus_patient_N");
+				var cytomegalovirus_patient_ND = valueForCheckbox("cytomegalovirus_patient_ND");
+				var cytomegalovirus_patient_U = valueForCheckbox("cytomegalovirus_patient_U");
+				var cytomegalovirus_patient_C = valueForCheckbox("cytomegalovirus_patient_C");
+				var cytomegalovirus_patient_I = valueForCheckbox("cytomegalovirus_patient_I");
+				var creatinine_donor = valueForIntegersAttributes("creatinine_donor");
+				var dialysis_patient = valueForIntegersAttributes("dialysis_patient");
+				var BUN_donor = valueForIntegersAttributes("BUN_donor");
+				var angina_patient = valueForIntegersAttributes("angina_patient");
+				var serum_bilirubin_donor = valueForIntegersAttributes("serum_bilirubin_donor");
+				var serum_bilirubin_patient = valueForIntegersAttributes("serum_bilirubin_patient");
+				var ischemic_time_donor = valueForIntegersAttributes("ischemic_time_donor");
+				var PRA_patient = valueForIntegersAttributes("PRA_patient");
+				var cause_of_death_donor = valueForIntegersAttributes("cause_of_death_donor");
+				var oxygen_exercise_patient = valueForIntegersAttributes("oxygen_exercise_patient");
+				var A_donor = valueForCheckbox("A_donor");
+				var B_donor = valueForCheckbox("B_donor");
+				var O_donor = valueForCheckbox("O_donor");
+				var AB_donor = valueForCheckbox("AB_donor");
+				var A_patient = valueForCheckbox("A_patient");
+				var B_patient = valueForCheckbox("B_patient");
+				var O_patient = valueForCheckbox("O_patient");
+				var AB_patient = valueForCheckbox("AB_patient");
+				var A1_donor = valueForIntegersAttributes("A1_donor");
+				var A2_donor = valueForIntegersAttributes("A2_donor");
+				var B1_donor = valueForIntegersAttributes("B1_donor");
+				var B2_donor = valueForIntegersAttributes("B2_donor");
+				var DR1_donor = valueForIntegersAttributes("DR1_donor");
+				var DR2_donor = valueForIntegersAttributes("DR2_donor");
+				var A1_patient = valueForIntegersAttributes("A1_patient");
+				var A2_patient = valueForIntegersAttributes("A2_patient");
+				var B1_patient = valueForIntegersAttributes("B1_patient");
+				var B2_patient = valueForIntegersAttributes("B2_patient");
+				var DR1_patient = valueForIntegersAttributes("DR1_patient");
+				var DR2_patient = valueForIntegersAttributes("DR2_patient");
+				var functional_status = valueForIntegersAttributes("functional_status");
+				var hemo_pcw = valueForIntegersAttributes("hemo_pcw");
+				var hemo_co = valueForIntegersAttributes("hemo_co");
+				var hemo_pa_sys = valueForIntegersAttributes("hemo_pa_sys");
+				var creatine_patient = valueForIntegersAttributes("creatine_patient");
+				var serum_albumin = valueForIntegersAttributes("serum_albumin");
+				var medical_condition = valueForIntegersAttributes("medical_condition");
+				var cereb_vasc_patient = valueForCheckbox("cereb_vasc_patient");
+				var cereb_vasc_event = valueForCheckbox("cereb_vasc_event");
+				var iv_therapy = valueForCheckbox("iv_therapy");
+				var antiarrythmics = valueForCheckbox("antiarrythmics");
+				var amiodarone = valueForCheckbox("amiodarone");
+				var defibrilator = valueForCheckbox("defibrilator");
+				var transfusion = valueForCheckbox("transfusion");
+				var transplant = valueForCheckbox("transplant");
+				var card_surg = valueForCheckbox("card_surg");
+				var malignancy = valueForCheckbox("malignancy");
+				var working_income = valueForCheckbox("working_income");
+				var inotropic_support = valueForCheckbox("inotropic_support");
+				var mechanical_ventilator = valueForCheckbox("mechanical_ventilator");
+				var ballon_pump = valueForCheckbox("ballon_pump");
+				var ECMO = valueForCheckbox("ECMO");
+				var ventricular_assist = valueForCheckbox("ventricular_assist");
+				var status = valueForIntegersAttributes("status");
+
+				var result = Math.round(3.0287e+05 +
+							diagnosis * (-1.3251) + 
+							age_patient * (-11.673) +
+							height_patient * 0.32625 +
+							cigarette_patient * 1.0395e+05 +
+							diabetes_patient * 94.647 +
+							peptic_ulcer_patient * (-100.99) +
+							perip_vasc_patient * (-57045) +
+							dialysis_patient * (-84.164) +
+							antiarrythmics * 32881 +
+							defibrilator * 179.07 +
+							transplant * (-1.0289e+05) +
+							functional_status * 56.222 +
+							creatine_patient * 95.174 +
+							serum_bilirubin_patient * 4.3746 +
+							medical_condition * 14894 +
+							inotropic_support * 53361 +
+							mechanical_ventilator * (-38265) +
+							ventricular_assist * 44567 +
+							age_donor * (-999.21) +
+							gender_donor * (-24812) +
+							height_donor * (-0.42675) +
+							weight_donor * 30.299 +
+							cigarette_donor * 25385 +
+							diabetes_donor * 204.61 +
+							ischemic_time_donor * 38139 +
+							cause_of_death_donor * (-22.722) +
+							DR2_donor * 174.83 +
+							B_patient * (-12586) +
+							AB_patient * 13316 +
+							O_patient * (-30706) +
+							AB_donor * (-97696) +
+							A_donor * (-53204) +
+							B_donor * (-71122) +
+							operation_year * -150.69 +
+							status * (-1.6442e+05) +
+							diagnosis * age_patient * 0.0061983 +
+							diagnosis * functional_status * 0.0012476 +
+							diagnosis * creatine_patient * 0.051778 +
+							diagnosis * medical_condition * 0.20957 +
+							diagnosis * inotropic_support * -0.36431 +
+							diagnosis * ventricular_assist * -0.56915 +
+							diagnosis * diabetes_donor * -0.0011286 +
+							diagnosis * cause_of_death_donor * -0.00066109 +
+							diagnosis * status * -0.76231 +
+							age_patient * height_patient * 0.060414 +
+							age_patient * peptic_ulcer_patient * -0.0061531 +
+							age_patient * transplant * -7.0618 +
+							age_patient * medical_condition * -1.3769 +
+							age_patient * age_donor * -0.20325 +
+							age_patient * gender_donor * 3.1292 +
+							age_patient * cigarette_donor * 3.4489 +
+							age_patient * cause_of_death_donor * 0.0035914 +
+							age_patient * DR2_donor * 0.047211 +
+							age_patient * status * 6.3208 +
+							height_patient * peptic_ulcer_patient * -0.0032185 +
+							height_patient * dialysis_patient * 0.001786 +
+							height_patient * transplant * 4.6469 +
+							height_patient * mechanical_ventilator * -2.5764 +
+							height_patient * gender_donor * -1.6663 +
+							height_patient * cause_of_death_donor * 0.0035914 +
+							height_patient * DR2_donor * -0.028319 +
+							height_patient * status * 2.413 +
+							cigarette_patient * diabetes_patient * -0.38016 +
+							cigarette_patient * dialysis_patient * -0.22823 +
+							cigarette_patient * defibrilator * -168.31 +
+							cigarette_patient * functional_status * 0.37924 +
+							cigarette_patient * medical_condition * 83.168 +
+							cigarette_patient * ischemic_time_donor * 42.201 +
+							cigarette_patient * operation_year * -52.16 +
+							cigarette_patient * status * 216.57 +
+							diabetes_patient * peptic_ulcer_patient * -0.00054003 +
+    						diabetes_patient * dialysis_patient * -0.00073348 +
+						    diabetes_patient * functional_status * 0.00067535 +
+						    diabetes_patient * inotropic_support * -0.21709 +
+						    diabetes_patient * mechanical_ventilator * 0.82121 +
+						    diabetes_patient * ventricular_assist * 0.58799 + 
+						    diabetes_patient * gender_donor * 0.11267 +
+						    diabetes_patient * cigarette_donor * 0.71004 +
+						    diabetes_patient * diabetes_donor * -0.00061624 +
+						    diabetes_patient * ischemic_time_donor * -0.20952 +
+						    diabetes_patient * cause_of_death_donor * 0.00068883 + 
+						    diabetes_patient * DR2_donor * 0.0065082 +
+						    diabetes_patient * AB_donor * 0.26389 +
+						    diabetes_patient * A_donor * 0.24361 +
+						    diabetes_patient * B_donor * 0.25517 +
+						    diabetes_patient * operation_year * -0.047242 +
+						    diabetes_patient * status * -1.0135 +
+						    peptic_ulcer_patient * dialysis_patient * 0.00050185 +
+						    peptic_ulcer_patient * defibrilator * 0.39127 +
+						    peptic_ulcer_patient * functional_status * -0.00036096 +
+						    peptic_ulcer_patient * creatinine_donor * 0.018977 +
+						    peptic_ulcer_patient * medical_condition * -0.091357 +
+						    peptic_ulcer_patient * ventricular_assist * 0.25677 +
+						    peptic_ulcer_patient * age_donor * 0.0087759 + 
+						    peptic_ulcer_patient * cytomegalovirus_donor_N * 0.13168 +
+						    peptic_ulcer_patient * cytomegalovirus_donor_ND * 0.12055 +
+						    peptic_ulcer_patient * cytomegalovirus_donor_U * 0.97698 +
+						    peptic_ulcer_patient * cytomegalovirus_donor_C * 0 +
+						    peptic_ulcer_patient * cytomegalovirus_donor_I * 0.14916 +
+						    peptic_ulcer_patient * cause_of_death_donor * -0.0016923 +
+						    peptic_ulcer_patient * B_patient * 0.2244 +
+						    peptic_ulcer_patient * AB_patient * 0.090387 +
+						    peptic_ulcer_patient * O_patient * 0.41422 +
+						    peptic_ulcer_patient * operation_year * 0.050359 + 
+						    peptic_ulcer_patient * status * 1.9252 +
+						    perip_vasc_patient * ischemic_time_donor * -68.9 + 
+						    perip_vasc_patient * operation_year * 28.542 +
+						    dialysis_patient * functional_status * -0.00028675 + 
+						    dialysis_patient * creatinine_donor * -0.015034 + 
+						    dialysis_patient * ventricular_assist * -0.16551 + 
+						    dialysis_patient * gender_donor * 0.091995 + 
+						    dialysis_patient * cigarette_donor * -0.12898 + 
+						    dialysis_patient * diabetes_donor * -0.00086557 + 
+						    dialysis_patient * cytomegalovirus_donor_N * -0.17769 +
+						    dialysis_patient * cytomegalovirus_donor_ND * -0.12129 +
+						    dialysis_patient * cytomegalovirus_donor_U * 1.5765 +
+						    dialysis_patient * cytomegalovirus_donor_C * 0 +
+						    dialysis_patient * cytomegalovirus_donor_I * 1.0138 + 
+						    dialysis_patient * ischemic_time_donor * -0.20477 + 
+						    dialysis_patient * cause_of_death_donor * 0.00028304 + 
+						    dialysis_patient * B_patient * 0.12093 +
+						    dialysis_patient * AB_patient * -0.00081518 + 
+						    dialysis_patient * O_patient * 0.27964 + 
+						    dialysis_patient * AB_donor * 0.45706 + 
+						    dialysis_patient * A_donor * 0.35386 + 
+						    dialysis_patient * B_donor * 0.34348 + 
+						    dialysis_patient * operation_year * 0.042245 +
+						    antiarrythmics * inotropic_support * -88.162 +
+    						antiarrythmics * ventricular_assist * -135.55 + 
+    						antiarrythmics * age_donor * 2.532 + 
+						    antiarrythmics * cause_of_death_donor * 0.1689 + 
+						    antiarrythmics * operation_year * -16.371 +
+						    antiarrythmics * status * -203.04 + 
+						    defibrilator * creatinine_donor * -6.1313 + 
+						    defibrilator * age_donor * -3.1227 + 
+						    transplant * functional_status * -0.29784 + 
+						    transplant * B_patient * 93.134 + 
+						    transplant * AB_patient * 151.69 + 
+						    transplant * O_patient * 184.49 + 
+						    transplant * operation_year * 51.09 +
+						    transplant * status * 171.43 + 
+						    functional_status * serum_bilirubin_patient * -0.019448 +
+						    functional_status * medical_condition * -0.55295 +
+						    functional_status * inotropic_support * -0.42109 + 
+						    functional_status * mechanical_ventilator * -0.95106 + 
+						    functional_status * ventricular_assist * -0.5948 +
+						    functional_status * gender_donor * -0.098929 + 
+						    functional_status * cigarette_donor * -0.12134 +
+						    functional_status * diabetes_donor * 0.0012841 +
+						    functional_status * cause_of_death_donor * -0.00024458 +
+						    functional_status * operation_year * -0.027666 + 
+						    functional_status * status * -0.10701 + 
+						    creatinine_donor * medical_condition * -6.2534 + 
+						    creatinine_donor * age_donor * 0.2053 +
+						    creatinine_donor * weight_donor * -2.2591 + 
+						    creatinine_donor * cause_of_death_donor + 0.0086606 + 
+						    medical_condition * inotropic_support * 42.564 + 
+						    medical_condition * gender_donor * -38.489 +
+						    medical_condition * diabetes_donor * 0.32028 +
+						    medical_condition * ischemic_time_donor * 38.716 + 
+						    medical_condition * DR2_donor * 0.77082 + 
+						    medical_condition * operation_year * -7.3119 + 
+						    inotropic_support * ischemic_time_donor * -54.335 +
+						    inotropic_support * cause_of_death_donor * -0.25854 +
+						    inotropic_support * DR2_donor * -1.9656 + 
+						    inotropic_support * operation_year * -26.074 +
+						    inotropic_support * status * -253.53 + 
+						    mechanical_ventilator * operation_year * 19.699 + 
+						    mechanical_ventilator * status * -156.03 +
+						    ventricular_assist * diabetes_donor * 0.62705 + 
+						    ventricular_assist * ischemic_time_donor * -116.29 + 
+						    ventricular_assist * DR2_donor * -2.351 +
+						    ventricular_assist * AB_donor * 16.549 +
+						    ventricular_assist * A_donor * 56.811 +
+						    ventricular_assist * B_donor * 122.23 +
+						    ventricular_assist * operation_year * -21.419 +
+						    ventricular_assist * status * -152.63 +
+						    age_donor * operation_year * 0.50146 +
+						    gender_donor * cytomegalovirus_donor_N * 66.79 +
+						    gender_donor * cytomegalovirus_donor_ND * -688.02 +
+						    gender_donor * cytomegalovirus_donor_U * 64.615 +
+						    gender_donor * cytomegalovirus_donor_C * 0 +
+						    gender_donor * cytomegalovirus_donor_I * -254.14 +
+						    gender_donor * operation_year * 12.529 +
+						    gender_donor * status * -56.352 +
+						    height_donor * weight_donor * -0.14531 +
+						    cigarette_donor * operation_year * -12.652 +
+						    cigarette_donor * status * -258.89 + 
+						    diabetes_donor * ischemic_time_donor * -0.2013 +
+						    diabetes_donor * operation_year * -0.10203 + 
+						    diabetes_donor * status * -1.1111 + 
+						    cytomegalovirus_donor_N * ischemic_time_donor * -41.447 +
+						    cytomegalovirus_donor_ND * ischemic_time_donor * -227.43 +
+						    cytomegalovirus_donor_U * ischemic_time_donor * -207.99 +
+						    cytomegalovirus_donor_C * ischemic_time_donor * 0 +
+						    cytomegalovirus_donor_I * ischemic_time_donor * -27.786 +
+						    cytomegalovirus_donor_N * cause_of_death_donor * -0.067681 +
+						    cytomegalovirus_donor_ND * cause_of_death_donor * 0.18728 +
+						    cytomegalovirus_donor_U * cause_of_death_donor * -1.0623 +
+						    cytomegalovirus_donor_C * cause_of_death_donor * 0 +
+						    cytomegalovirus_donor_I * cause_of_death_donor * 0.18185 +
+						    cytomegalovirus_donor_N * operation_year * -23.578 +
+						    cytomegalovirus_donor_ND * operation_year * -20.93 +
+						    cytomegalovirus_donor_U * operation_year * 38.938 +
+						    cytomegalovirus_donor_C * operation_year * 0.081177 +
+						    cytomegalovirus_donor_I * operation_year * -24.065 +
+						    cytomegalovirus_donor_N * status * -141.06 +
+						    cytomegalovirus_donor_ND * status * -370.8 + 
+						    cytomegalovirus_donor_U * status * -258.93 + 
+						    cytomegalovirus_donor_C * status * 0 +
+						    cytomegalovirus_donor_I * status * -1.0985 + 
+						    ischemic_time_donor * cause_of_death_donor * 0.09643 + 
+						    ischemic_time_donor * DR2_donor * -0.56205 +
+						    ischemic_time_donor * AB_donor * 47.851 +
+						    ischemic_time_donor * A_donor * 9.7315 +
+						    ischemic_time_donor * B_donor * 20.415 +
+						    ischemic_time_donor * operation_year * -19.016 +
+						    ischemic_time_donor * status * -88.346 +
+						    cause_of_death_donor * DR2_donor * 0.0013867 +
+						    cause_of_death_donor * operation_year * 0.011639 +
+						    cause_of_death_donor * status * 0.17386 +
+						    DR2_donor * operation_year * -0.08461 +
+						    DR2_donor * status * -1.1363 +
+						    B_patient * AB_donor * -447.14 +
+						    AB_patient * AB_donor * -376.55 +
+						    O_patient * AB_donor * -283.34 + 
+						    B_patient * A_donor * -561.14 +
+						    AB_patient * A_donor * -161 + 
+						    O_patient * A_donor * -516.22 + 
+						    B_patient * B_donor * 283.36 + 
+						    AB_patient * B_donor * 155.7 + 
+						    O_patient * B_donor * -60.716 + 
+						    B_patient * operation_year * 6.2844 + 
+						    AB_patient * operation_year * -6.5926 +
+						    O_patient * operation_year * 15.346 + 
+						    AB_donor * operation_year * 48.74 + 
+						    A_donor * operation_year * 26.537 + 
+						    B_donor * operation_year * 35.275 + 
+						    AB_donor * status * 308.29 +
+						    A_donor * status * 101.69 +
+						    B_donor * status * 182.14 +
+						    operation_year * status * 81.755);
+
+				if (result < 0){
+					result = 0;
+				}
+				document.getElementById("result").value = result;
+			}
+
+		</script>
 	</head>
 	<body>
 		<header>
@@ -40,7 +454,7 @@
 							<option value="1">Female</option>
 						</select>
 					</td>
-					<td colspan="2"><input type="button" value="Submit"/></td>
+					<td colspan="2"><input type="button" value="Submit" onClick="estimateSurvivalDays()" /></td>
 				</tr>
 				<tr>
 					<td id="text">Height (cm)</td>
@@ -62,375 +476,387 @@
 					<td id="text">ABO</td>
 					<td>
 						<form>
-							A<input type="radio" name="A_donor" id="A_donor" />
-							B<input type="radio" name="B_donor" id="B_donor" />
-							O<input type="radio" name="O_donor" id="O_donor" />
-							AB<input type="radio" name="AB_donor" id="AB_donor" />
+							A<input type="radio" name="ABO_donor" id="A_donor" />
+							B<input type="radio" name="ABO_donor" id="B_donor" />
+							O<input type="radio" name="ABO_donor" id="O_donor" />
+							AB<input type="radio" name="ABO_donor" id="AB_donor" />
 						</form>
 					</td>
 					<td id="text">ABO</td>
+					<td>
+						<form>
+							A<input type="radio" name="ABO_patient" id="A_patient" />
+							B<input type="radio" name="ABO_patient" id="B_patient" />
+							O<input type="radio" name="ABO_patient" id="O_patient" />
+							AB<input type="radio" name="ABO_patient" id="AB_patient" />
+						</form>
+					</td>
 					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td id="text">Operation Year</td>
+					<td><input type="text" id="operation_year" /></td>
+					<td id="text">Diagnosis</td>
+					<td><input type="text" id="diagnosis" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cigarette</td>
+					<td><input type="checkbox" id="cigarette_donor" /></td>
+					<td>Cigarette</td>
+					<td><input type="checkbox" id="cigarette_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Alcohol</td>
+					<td><input type="checkbox" id="alcohol_donor" /></td>
+					<td>COPD</td>
+					<td><input type="checkbox" id="COPD" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cocaine</td>
+					<td><input type="checkbox" id="cocaine_donor" /></td>
+					<td>Perip Vasc</td>
+					<td><input type="checkbox" id="perip_vasc_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Diabetes</td>
+					<td><input type="text" id="diabetes_donor" /></td>
+					<td>Diabetes</td>
+					<td><input type="text" id="diabetes_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Hypertension</td>
+					<td><input type="text" id="hypertension_donor" /></td>
+					<td>Hypertension</td>
+					<td><input type="checkbox" id="hypertension_patient"/></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>LVEF</td>
+					<td><input type="text" id="LVEF_donor" /></td>
+					<td>Peptic Ulcer</td>
+					<td><input type="text" id="peptic_ulcer_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cytomegalovirus</td>
+					<td>
+						<form>
+							N<input type="radio" name="cytomegalovirus_donor" id="cytomegalovirus_donor_N"/>
+							ND<input type="radio" name="cytomegalovirus_donor" id="cytomegalovirus_donor_ND"/>
+							U<input type="radio" name="cytomegalovirus_donor" id="cytomegalovirus_donor_U"/><br/>
+							C<input type="radio" name="cytomegalovirus_donor" id="cytomegalovirus_donor_C"/>
+							I<input type="radio" name="cytomegalovirus_donor" id="cytomegalovirus_donor_I"/>
+						</form>
+					</td>
+					<td>Cytomegalovirus</td>
+					<td>
+						<form>
+							N<input type="radio" name="cytomegalovirus_patient" id="cytomegalovirus_patient_N"/>
+							ND<input type="radio" name="cytomegalovirus_patient" id="cytomegalovirus_patient_ND"/>
+							U<input type="radio" name="cytomegalovirus_patient" id="cytomegalovirus_patient_U"/><br/>
+							C<input type="radio" name="cytomegalovirus_patient" id="cytomegalovirus_patient_C"/>
+							I<input type="radio" name="cytomegalovirus_patient" id="cytomegalovirus_patient_I"/>
+						</form>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Creatinine</td>
+					<td><input type="text" id="creatinine_donor" /></td>
+					<td>Dialysis</td>
+					<td><input type="text" id="dialysis_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>BUN</td>
+					<td><input type="text" id="BUN_donor" /></td>
+					<td>Angina</td>
+					<td><input type="text" id="angina_patient"/></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Serum Bilirubin</td>
+					<td><input type="text" id="serum_bilirubin_donor" /></td>
+					<td>Serum Bilirubin</td>
+					<td><input type="text" id="serum_bilirubin_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Ischemic Time</td>
+					<td><input type="text" id="ischemic_time_donor" /></td>
+					<td>PRA</td>
+					<td><input type="text" id="PRA_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Cause of Death</td>
+					<td><input type="text" id="cause_of_death_donor" /></td>
+					<td>Oxygen Exercise</td>
+					<td><input type="text" id="oxygen_exercise_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>A1</td>
+					<td><input type="text" id="A1_donor" /></td>
+					<td>A1</td>
+					<td><input type="text" id="A1_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>A2</td>
+					<td><input type="text" id="A2_donor" /></td>
+					<td>A2</td>
+					<td><input type="text" id="A2_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>B1</td>
+					<td><input type="text" id="B1_donor" /></td>
+					<td>B1</td>
+					<td><input type="text" id="B1_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>B2</td>
+					<td><input type="text" id="B2_donor" /></td>
+					<td>B2</td>
+					<td><input type="text" id="B2_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>DR1</td>
+					<td><input type="text" id="DR1_donor" /></td>
+					<td>DR1</td>
+					<td><input type="text" id="DR1_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>DR2</td>
+					<td><input type="text" id="DR2_donor" /></td>
+					<td>DR2</td>
+					<td><input type="text" id="DR2_patient" /></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+						<td></td>
+						<td></td>
+						<td>Status</td>
+						<td><input type="text" id="status" /></td>
+						<td></td>
+						<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Functional Status</td>
+					<td><input type="text" id="functional_status" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Hemo PCW</td>
+					<td><input type="text" id="hemo_pcw" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Hemo CO</td>
+					<td><input type="text" id="hemo_co"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Hemo PA SYS</td>
+					<td><input type="text" id="hemo_pa_sys" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Creatine</td>
+					<td><input type="text" id="creatine_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Serum Albumin</td>
+					<td><input type="text" id="serum_albumin" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Medical Condition</td>
+					<td><input type="text" id="medical_condition" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Cereb Vasc</td>
+					<td><input type="checkbox" id="cereb_vasc_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Cereb Vasc Event</td>
+					<td><input type="checkbox" id="cereb_vasc_event" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>IV Therapy</td>
+					<td><input type="checkbox" id="iv_therapy" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Antiarrythmics</td>
+					<td><input type="checkbox" id="antiarrythmics"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Amiodarone</td>
+					<td><input type="checkbox" id="amiodarone"</td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Defibrilator</td>
+					<td><input type="checkbox" id="defibrilator"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Transfusion</td>
+					<td><input type="checkbox" id="transfusion" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Transplant</td>
+					<td><input type="checkbox" id="transplant" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Card Surg</td>
+					<td><input type="checkbox" id="card_surg" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Malignancy</td>
+					<td><input type="checkbox" id="malignancy" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Working Income</td>
+					<td><input type="checkbox" id="working_income" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Inotropic Support</td>
+					<td><input type="checkbox" id="inotropic_support" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Mech Ventilator</td>
+					<td><input type="checkbox" id="mechanical_ventilator"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Ballon Pump</td>
+					<td><input type="checkbox" id="ballon_pump" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>ECMO</td>
+					<td><input type="checkbox" id="ECMO" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>Ventricular Assist</td>
+					<td><input type="checkbox" id="ventricular_assist" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 			</table>
 		</section>
 		<footer>
-			<p>Zuyao Li - Juan G. Martínez<br />
-			Lund University<br />
-			2014</p>
 		</footer>
 	</body>
 </html>
