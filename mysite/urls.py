@@ -15,5 +15,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     (r'^surgery-form/$',surgery_form),
-    
+    (r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':'static'}),    
 )
