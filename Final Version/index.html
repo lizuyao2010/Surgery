@@ -86,7 +86,310 @@
 				return test;
 
 			}
+			function checkRanges(feature_id, feature_id_value){
+				switch(feature_id) {
+					case "age_donor":
+						if (feature_id_value < 0 || feature_id_value > 100 ) {
+							alert("Donor's age out of range");
+							counter += 1;
+						}
+						break;
+					case "age_patient":
+						if (feature_id_value < 0 || feature_id_value > 100 ) {
+							alert("Patient's age out of range");
+							counter += 1;
+						}
+						break;
+					case "height_donor":
+						if(feature_id_value < 46 || feature_id_value > 240) {
+							alert("Donor's height out of range");
+							counter += 1;
+						}
+						break;
+					case "height_patient":
+						if(feature_id_value < 46 || feature_id_value > 240) {
+							alert("Patient's height out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "weight_donor":
+						if(feature_id_value < 2 || feature_id_value > 140) {
+							alert("Donor's height out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "weight_patient":
+						if(feature_id_value < 2 || feature_id_value > 140) {
+							alert("Patient's height out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "operation_year":
+						if(feature_id_value < 1988 || feature_id_value > 2014) {
+							alert("Operation Year out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "diagnosis":
+						if(feature_id_value < 999 || feature_id_value > 1999) {
+							alert("Diagnosis out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "diabetes_donor":
+						if(feature_id_value < 1 || feature_id_value > 1000) {
+							alert("Donor's diabetes out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "diabetes_donor":
+						if(feature_id_value < 1 || feature_id_value > 1000) {
+							alert("Donor's diabetes out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "diabetes_patient":
+						if(feature_id_value < 1 || feature_id_value > 1000) {
+							alert("Patient's diabetes out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "hypertension_donor":
+						if(feature_id_value < 1 || feature_id_value > 1000) {
+							alert("Donor's Hypertension out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "LVEF_donor":
+						if(feature_id_value < 1 || feature_id_value > 99) {
+							alert("Donor's LVEF out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "peptic_ulcer_patient":
+						if(feature_id_value < 1 || feature_id_value > 99) {
+							alert("Patient's Peptic Ulcer out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "creatinine_donor":
+						if (feature_id_value < 0 || feature_id_value > 50) {
+							alert("Donor's Creatinine out of range");
+							counter += 1;
+						}
+						break;
+					case "dialysis_patient":
+						if (feature_id_value < 1 || feature_id_value > 999) {
+							alert("Patient's Dialysis out of range");
+						}
+					case "BUN_donor":
+						if (feature_id_value < 0 || feature_id_value > 230) {
+							alert("Donor's BUN out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "angina_patient":
+						if (feature_id_value < 1 || feature_id_value > 998) {
+							alert("Patient's Angina out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "serum_bilirubin_donor":
+						if (feature_id_value < 0 || feature_id_value > 600) {
+							alert("Donor's Serum Bilirubin out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "serum_bilirubin_patient":
+						if (feature_id_value < 0 || feature_id_value > 600) {
+							alert("Patient's Serum Bilirubin out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "ischemic_time_donor":
+						if(feature_id_value < 0 ||
+							feature_id_value > 100) {
+							alert("Donor's Ischemic Time out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "PRA_patient":
+						if (feature_id_value < 0 || feature_id_value > 100) {
+							alert("Patient's PRA out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "cause_of_death_donor":
+						if (feature_id_value < 0 || feature_id_value > 999) {
+							alert("Donor's Cause of Death out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "oxygen_exercise_patient":
+						if (feature_id_value < 0 || feature_id_value > 20) {
+							alert("Donor's BUN out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "A1_donor":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Donor's A1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "A1_patient":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Patient's A1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "A2_donor":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Donor's A2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "A2_patient":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Patient's A2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "B1_donor":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Donor's B1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "B1_patient":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Patient's B1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "B2_donor":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Donor's B2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "B2_patient":
+						if (feature_id_value < 0 || feature_id_value > 9999) {
+							alert("Patient's B2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "DR1_donor":
+						if (feature_id_value < 0 || feature_id_value > 1500) {
+							alert("Donor's DR1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "DR1_patient":
+						if (feature_id_value < 0 || feature_id_value > 1500) {
+							alert("Patient's DR1 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "DR2_donor":
+						if (feature_id_value < 0 || feature_id_value > 1500) {
+							alert("Donor's DR2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "DR2_patient":
+						if (feature_id_value < 0 || feature_id_value > 1500) {
+							alert("Patient's DR2 out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "status":
+						if(feature_id_value < 0 || feature_id_value > 1) {
+							alert("Patient's Status out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "functional_status":
+						if(feature_id_value < 1 || feature_id_value > 999) {
+							alert("Patient's Functional Status out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "hemo_pcw":
+						if(feature_id_value < 0 || feature_id_value > 100) {
+							alert("Patient's Hemo PCW out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "hemo_co":
+						if(feature_id_value < 0 || feature_id_value > 600) {
+							alert("Patient's Hemo CO out of range");
+							counter += 1;
+						}
+						break;
+					case "hemo_pa_sys":
+						if(feature_id_value < 0 || feature_id_value > 250) {
+							alert("Patient's Hemo PA SYS out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "creatine_patient":
+						if(feature_id_value < 0 || feature_id_value > 350) {
+							alert("Patient's Creatinine out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "serum_albumin":
+						if(feature_id_value < 0 || feature_id_value > 10) {
+							alert("Patient's Serum Albumin out of range");
+							counter += 1;
+						}
+						break;
+					
+					case "medical_condition":
+						if(feature_id_value < 0 || feature_id_value > 3) {
+							alert("Patient's Medical Condition out of range");
+						}
+					default:
 
+				}
+			}
 			function estimateSurvivalDays() {
 
 				var age_donor = valueForIntegersAttributes("age_donor");
@@ -176,6 +479,53 @@
 				var ECMO = valueForCheckbox("ECMO");
 				var ventricular_assist = negatedValueForCheckbox("ventricular_assist");
 				var status = valueForIntegersAttributes("status");
+
+				var counter = 0;
+
+				checkRanges("age_donor", age_donor);
+				checkRanges("age_patient", age_patient);
+				checkRanges("height_donor", height_donor);
+				checkRanges("height_patient", height_patient);
+				checkRanges("weight_donor", weight_donor);
+				checkRanges("weight_patient", weight_patient);
+				checkRanges("operation_year", operation_year);
+				checkRanges("diagnosis", diagnosis);
+				checkRanges("diabetes_donor", diabetes_donor);
+				checkRanges("diabetes_patient", diabetes_patient);
+				checkRanges("hypertension_donor", hypertension_donor);
+				checkRanges("LVEF_donor", LVEF_donor);
+				checkRanges("peptic_ulcer_patient", peptic_ulcer_patient);
+				checkRanges("creatinine_donor", creatinine_donor);
+				checkRanges("dialysis_patient", dialysis_patient);
+				checkRanges("BUN_donor", BUN_donor);
+				checkRanges("angina_patient", angina_patient);
+				checkRanges("serum_bilirubin_donor", serum_bilirubin_donor);
+				checkRanges("serum_bilirubin_patient", serum_bilirubin_patient);
+				checkRanges("ischemic_time_donor", ischemic_time_donor);
+				checkRanges("PRA_patient", PRA_patient);
+				checkRanges("cause_of_death_donor", cause_of_death_donor);
+				checkRanges("oxygen_exercise_patient", oxygen_exercise_patient);
+				checkRanges("A1_donor", A1_donor);
+				checkRanges("A1_patient", A1_patient);
+				checkRanges("A2_donor", A2_donor);
+				checkRanges("A2_patient", A2_patient);
+				checkRanges("B1_donor", B1_donor);
+				checkRanges("B1_patient", B1_patient);
+				checkRanges("B2_donor", B2_donor);
+				checkRanges("B2_patient", B2_patient);
+				checkRanges("DR1_donor", DR1_donor);
+				checkRanges("DR1_patient", DR1_patient);
+				checkRanges("DR2_donor", DR2_donor);
+				checkRanges("DR2_patient", DR2_patient);
+				checkRanges("status", status);
+				checkRanges("functional_status", functional_status);
+				checkRanges("hemo_pcw", hemo_pcw);
+				checkRanges("hemo_co", hemo_co);
+				checkRanges("hemo_pa_sys", hemo_pa_sys);
+				checkRanges("creatine_patient", creatine_patient);
+				checkRanges("serum_albumin", serum_albumin);
+				checkRanges("medical_condition", medical_condition);
+
 
 				var result = Math.round(3.0287e+05 +
 							diagnosis * (-1.3251) + 
@@ -441,9 +791,9 @@
 					<td colspan="2">Estimation</td>
 				</tr>
 				<tr>
-					<td id="text"><b>Age</b></td>
+					<td id="text"><b>Age</b><br />(0 - 100)</td>
 					<td><input id="age_donor" type="text" /></td>
-					<td id="text"><b>Age</b></td>
+					<td id="text"><b>Age</b><br />(0 - 100)</td>
 					<td><input id="age_patient" type="text" /></td>
 					<td id="text">Estimated Days</td>
 					<td><input id="result" type="text" /></td>
@@ -466,17 +816,17 @@
 					<td colspan="2"><input type="button" value="Submit" onClick="estimateSurvivalDays()" /></td>
 				</tr>
 				<tr>
-					<td id="text"><b>Height (cm)</b></td>
+					<td id="text"><b>Height</b><br />(46 - 240)</td>
 					<td><input type="text" id="height_donor" /></td>
-					<td id="text"><b>Height (cm)</b></td>
+					<td id="text"><b>Height</b><br />(46 - 240)</td>
 					<td><input type="text" id="height_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td id="text"><b>Weight (kg)</b></td>
+					<td id="text"><b>Weight</b><br />(2 - 140)</td>
 					<td><input type="text" id="weight_donor" /></td>
-					<td id="text">Weight (kg)</td>
+					<td id="text">Weight<br />(2 - 140)</td>
 					<td><input type="text" id="weight_patient" /></td>
 					<td></td>
 					<td></td>
@@ -504,9 +854,9 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td id="text"><b>Operation Year</b></td>
+					<td id="text"><b>Operation Year</b><br />(1988-2014)</td>
 					<td><input type="text" id="operation_year" /></td>
-					<td id="text"><b>Diagnosis<b></td>
+					<td id="text"><b>Diagnosis</b><br />(999-1999)</td>
 					<td><input type="text" id="diagnosis" /></td>
 					<td></td>
 					<td></td>
@@ -536,15 +886,15 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Diabetes</b></td>
+					<td><b>Diabetes</b><br />(1-1000)</td>
 					<td><input type="text" id="diabetes_donor" /></td>
-					<td>Diabetes</td>
+					<td>Diabetes<br />(1-1000)</td>
 					<td><input type="text" id="diabetes_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Hypertension</td>
+					<td>Hypertension<br />(1-998)</td>
 					<td><input type="text" id="hypertension_donor" /></td>
 					<td>Hypertension</td>
 					<td><input type="checkbox" id="hypertension_patient"/></td>
@@ -552,9 +902,9 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>LVEF</td>
+					<td>LVEF<br />(1-99)</td>
 					<td><input type="text" id="LVEF_donor" /></td>
-					<td><b>Peptic Ulcer</b></td>
+					<td><b>Peptic Ulcer</b><br />(1-998)</td>
 					<td><input type="text" id="peptic_ulcer_patient" /></td>
 					<td></td>
 					<td></td>
@@ -584,89 +934,89 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>Creatinine</td>
+					<td>Creatinine<br />(0 - 50)</td>
 					<td><input type="text" id="creatinine_donor" /></td>
-					<td>Dialysis</td>
+					<td>Dialysis<br />(1 - 999)</td>
 					<td><input type="text" id="dialysis_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>BUN</td>
+					<td>BUN<br />(0 - 230)</td>
 					<td><input type="text" id="BUN_donor" /></td>
-					<td>Angina</td>
+					<td>Angina<br />(1 - 998)</td>
 					<td><input type="text" id="angina_patient"/></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>Serum Bilirubin</td>
+					<td>Serum Bilirubin<br />(0 - 600)</td>
 					<td><input type="text" id="serum_bilirubin_donor" /></td>
-					<td><b>Serum Bilirubin</b></td>
+					<td><b>Serum Bilirubin</b><br />(0 - 600)</td>
 					<td><input type="text" id="serum_bilirubin_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Ischemic Time</b></td>
+					<td><b>Ischemic Time</b><br />(0 - 100)</td>
 					<td><input type="text" id="ischemic_time_donor" /></td>
-					<td>PRA</td>
+					<td>PRA<br />(0 - 100)</td>
 					<td><input type="text" id="PRA_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>Cause of Death</b></td>
+					<td><b>Cause of Death</b><br />(0 - 999)</td>
 					<td><input type="text" id="cause_of_death_donor" /></td>
-					<td>Oxygen Exercise</td>
+					<td>Oxygen Exercise<br />(0 - 20)</td>
 					<td><input type="text" id="oxygen_exercise_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>A1</td>
+					<td>A1<br/>(0-9999)</td>
 					<td><input type="text" id="A1_donor" /></td>
-					<td>A1</td>
+					<td>A1<br/>(0-9999)</td>
 					<td><input type="text" id="A1_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>A2</td>
+					<td>A2<br/>(0-9999)</td>
 					<td><input type="text" id="A2_donor" /></td>
-					<td>A2</td>
+					<td>A2<br/>(0-9999)</td>
 					<td><input type="text" id="A2_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>B1</td>
+					<td>B1<br/>(0-9999)</td>
 					<td><input type="text" id="B1_donor" /></td>
-					<td>B1</td>
+					<td>B1<br/>(0-9999)</td>
 					<td><input type="text" id="B1_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>B2</td>
+					<td>B2<br/>(0-9999)</td>
 					<td><input type="text" id="B2_donor" /></td>
-					<td>B2</td>
+					<td>B2<br/>(0-9999)</td>
 					<td><input type="text" id="B2_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td>DR1</td>
+					<td>DR1<br/>(0-1500)</td>
 					<td><input type="text" id="DR1_donor" /></td>
-					<td>DR1</td>
+					<td>DR1<br/>(0-1500)</td>
 					<td><input type="text" id="DR1_patient" /></td>
 					<td></td>
 					<td></td>
 				</tr>
 				<tr>
-					<td><b>DR2</b></td>
+					<td><b>DR2<br/>(0-1500)</b></td>
 					<td><input type="text" id="DR2_donor" /></td>
-					<td>DR2</td>
+					<td>DR2<br/>(0-1500)</td>
 					<td><input type="text" id="DR2_patient" /></td>
 					<td></td>
 					<td></td>
@@ -674,7 +1024,7 @@
 				<tr>
 						<td></td>
 						<td></td>
-						<td><b>Status</b></td>
+						<td><b>Status</b><br/>(0 - 1)</td>
 						<td><input type="text" id="status" /></td>
 						<td></td>
 						<td></td>
@@ -682,7 +1032,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td><b>Functional Status</b></td>
+					<td><b>Functional Status</b><br />(1 - 999)</td>
 					<td><input type="text" id="functional_status" /></td>
 					<td></td>
 					<td></td>
@@ -690,7 +1040,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td>Hemo PCW</td>
+					<td>Hemo PCW<br />(0 - 100)</td>
 					<td><input type="text" id="hemo_pcw" /></td>
 					<td></td>
 					<td></td>
@@ -698,7 +1048,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td>Hemo CO</td>
+					<td>Hemo CO<br />(0 - 600)</td>
 					<td><input type="text" id="hemo_co"/></td>
 					<td></td>
 					<td></td>
@@ -706,7 +1056,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td>Hemo PA SYS</td>
+					<td>Hemo PA SYS<br/>(0 - 250)</td>
 					<td><input type="text" id="hemo_pa_sys" /></td>
 					<td></td>
 					<td></td>
@@ -714,7 +1064,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td><b>Creatine</b></td>
+					<td><b>Creatine</b><br />(0 - 350)</td>
 					<td><input type="text" id="creatine_patient" /></td>
 					<td></td>
 					<td></td>
@@ -722,7 +1072,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td>Serum Albumin</td>
+					<td>Serum Albumin<br/>(0 - 10)</td>
 					<td><input type="text" id="serum_albumin" /></td>
 					<td></td>
 					<td></td>
@@ -730,7 +1080,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td><b>Medical Condition</b></td>
+					<td><b>Medical Condition</b><br />(0 - 3)</td>
 					<td><input type="text" id="medical_condition" /></td>
 					<td></td>
 					<td></td>
